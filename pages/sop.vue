@@ -14,7 +14,7 @@ export default class UsefulPage extends Vue{
     async asyncData(){
         const proxyurl='https://test.cors.workers.dev/?';
         let [waiting]=await Promise.all([
-            axios.get(proxyurl+'https://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
+            axios.get(proxyurl+'http://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
         ])
         return {
             Waiting:waiting.data,
