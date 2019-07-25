@@ -13,7 +13,7 @@ import axios from 'axios';
 export default class UsefulPage extends Vue{
     async asyncData(){
         let [waiting]=await Promise.all([
-            axios.get('http://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
+            axios.get('https://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
         ])
         return {
             Waiting:waiting.data,
