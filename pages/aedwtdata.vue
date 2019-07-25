@@ -19,7 +19,7 @@ export default class UsefulPage extends Vue{
     async asyncData(lang:string){
         const proxyurl='https://cors-anywhere.herokuapp.com/';
         let [tc,en]=await Promise.all([
-            axios.get('https://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
+            axios.get('https://yacdn.org/proxy/https://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
             axios.get('https://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
         ])
         console.log(i18n.locale)
