@@ -39,13 +39,17 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/proxy',
+    '@gauseen/nuxt-proxy'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    //proxyHeaders:false
+    baseURL:'https://www.ha.org.hk/opendata',
+    credentials: false,
+    proxyHeaders:false
   },
   /*
   ** Build configuration
@@ -59,5 +63,15 @@ export default {
   },
   router:{
     base:'/GetNewInfo/'
+  },
+  proxy:[
+    'https://www.ha.org.hk/opendata/*/*.json'
+  ],
+  proxyTable:{
+    '/api':{
+      target:'http://localhost:3000/GetNewInfo/',
+      pathRewrite:{'/api':''}
+    }
   }
+  
 }
