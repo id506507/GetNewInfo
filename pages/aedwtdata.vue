@@ -19,8 +19,8 @@ export default class UsefulPage extends Vue{
     async asyncData(lang:string){
         
         let [tc,en]=await Promise.all([
-            axios.get('http://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
-            axios.get('http://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
+            axios.get('https://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
+            axios.get('https://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
         ])
         console.log(i18n.locale)
         switch(i18n.locale){
