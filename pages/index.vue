@@ -2,6 +2,7 @@
   <div class="container">
     <div>{{$t('waiting')}}：<nuxt-link to="/aedwtdata">{{$t('waiting')}}</nuxt-link></div>
     <div>{{$t('sop')}}：<nuxt-link to="/sop">{{$t('sop')}}</nuxt-link></div>
+    hi
     <div class="space"></div>
   </div>
 </template>
