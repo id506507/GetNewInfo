@@ -12,8 +12,9 @@ import axios from 'axios';
 @Component
 export default class UsefulPage extends Vue{
     async asyncData(){
+        const proxyurl='https://cors-anywhere.herokuapp.com/';
         let [waiting]=await Promise.all([
-            axios.get('https://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
+            axios.get(proxyurl+'https://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
         ])
         return {
             Waiting:waiting.data,
