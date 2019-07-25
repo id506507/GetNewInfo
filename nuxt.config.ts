@@ -40,7 +40,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
-    '@gauseen/nuxt-proxy'
+    '@gauseen/nuxt-proxy',
+    '@nuxtjs/component-cache',
   ],
   /*
   ** Axios module configuration
@@ -72,6 +73,6 @@ export default {
       target:'http://localhost:3000/GetNewInfo/',
       pathRewrite:{'/api':''}
     }
-  }
+  },
   
 }
