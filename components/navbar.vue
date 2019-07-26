@@ -13,7 +13,7 @@
                     <nuxt-link to="/sop" class="nav-link">{{$t('sop')}}</nuxt-link>
                 </li>
                 <li class="nav-item active">
-                    <nuxt-link to="/weather" class="nav-link">天氣</nuxt-link>
+                    <nuxt-link to="/weather" class="nav-link">{{$t('weather')}}</nuxt-link>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
