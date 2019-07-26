@@ -73,7 +73,7 @@ export default {
   ],
   proxyTable:{
     '/api':{
-      target:'http://localhost:3000/GetNewInfo/',
+      target:'https://id506507.github.io/GetNewInfo/',
       pathRewrite:{'/api':''}
     }
   },
