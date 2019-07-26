@@ -26,9 +26,25 @@
             <div class="cards">一般天氣預測：{{Flws.generalSituation}}</div><br>
             <div class="cards" v-if="Flws.tcInfo!=''">颱風預測：{{Flws.tcInfo}}</div><br>
             <div class="cards" v-if="Flws.fireDangerWarning!=''">火災危險警告：{{Flws.fireDangerWarning}}</div><br>
-            <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div>
+            <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div><br>
+            <div class="subtitle">九天天氣預報</div>
+            <div>{{Nine.generalSituation}}</div><br>
+            <div v-for="item in Nine.weatherForecast" :key="item">
+                <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">{{item.forecastDate}}</h6>
+                            <h6 class="card-title">({{item.week}})</h6>
+                            <p class="card-text">風力：{{item.forecastWind}}</p>
+                            <p class="card-text">{{item.forecastWeather}}</p>
+                            <p class="card-text">最高溫度：{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
+                            <p class="card-text">最低溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}</p>
+                            <p class="card-text">最高濕度：{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
+                            <p class="card-text">最低濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}</p>
+                        </div>
+                </div>
+            </div>
         </div>
-        <div style="height:500px"></div>
+        <div style="height:1000px"></div>
     </div>
 </template>
 <script lang="ts">
@@ -37,22 +53,34 @@ import axios from 'axios';
 @Component
 export default class WeatherDetail extends Vue{
     async asyncData(){
-        let [detail,warning,flws,raining]=await Promise.all([
+        let [detail,warning,flws,raining,nine]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc')
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc')
     ])
     return{
             Detail:detail.data.details,
             Warning:warning.data,
             Flws:flws.data,
-            Raining:raining.data.rainfall
+            Raining:raining.data.rainfall,
+            Nine:nine.data
         }
     }
 }
 </script>
 <style>
+.card{
+    width: 9rem;
+    margin-right: 0.5%;
+    float: left;
+}
+.subtitle{
+    font-weight: bold;
+    font-size: 101%;
+    color:rgb(2, 0, 139);
+}
 .detailItem{
     margin-bottom: 0.5%;
 }
@@ -66,8 +94,5 @@ export default class WeatherDetail extends Vue{
 }
 .date{
     font-size: 90%;
-}
-.cards{
-    /* margin-bottom: 1%; */
 }
 </style>
