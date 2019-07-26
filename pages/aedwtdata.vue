@@ -21,8 +21,8 @@ export default class UsefulPage extends Vue{
         const proxyurl='https://thingproxy.freeboard.io/fetch/';
         const proxyurl2='https://cors-anywhere.herokuapp.com/';
         let [tc,en]=await Promise.all([
-            axios.get(proxyurl2+'http://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
-            axios.get(proxyurl2+'http://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
+            axios.get(proxyurl+'http://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
+            axios.get(proxyurl+'http://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
         ])
         console.log(i18n.locale)
         switch(i18n.locale){
