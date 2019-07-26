@@ -20,7 +20,7 @@ export default {
 
 <style>
 .space{
-  height:1000px;
+  height:700px;
 }
 
 .links {

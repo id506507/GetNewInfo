@@ -15,6 +15,9 @@
                 <li class="nav-item active">
                     <nuxt-link to="/weather" class="nav-link">{{$t('weather')}}</nuxt-link>
                 </li>
+                <li class="nav-item active">
+                    <nuxt-link to="/weather_detail" class="nav-link">詳細天氣報告</nuxt-link>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
