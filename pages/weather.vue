@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div class="special">
-        特別天氣提示：<div v-if="Special.swt!=''">{{Special.swt}}</div>
+        特別天氣提示<div v-if="Special.swt!=''">{{Special.swt}}</div>
                      <div v-else>無</div>
         </div>
-        
+        <div>濕度<div>{{Weather.humidity.data[0].value}}%</div></div><br>
         <div class="dis">
-            <div>本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)：</div>
+            <div>本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)</div>
             <div class="temp">
             <div v-for="item in Weather.temperature.data" :key="item">
                 <div class="card">
@@ -18,7 +18,8 @@
             </div>
             </div>
         </div>
-        濕度：<div>{{Weather.humidity.data[0].value}}%</div>
+        
+        <div style="height:1000px"></div>
     </div>
 </template>
 <script lang="ts">
@@ -67,6 +68,7 @@ export default class WeatherPage extends Vue{
 .detail{
 margin-bottom: 1%;
 }
+
 </style>
 
 

@@ -4,6 +4,7 @@
     "sop":"General Outpatient Clinic Quota",
     "update":"UPDATE FREQUENCY: EVERY 15 MINUTES",
     "weather":"Weather",
-    "weather_detail":"Weather warning summary"
+    "weather_detail":"Weather warning summary",
+    "weather_forecast":"Weather Forecast"
     
 }

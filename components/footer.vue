@@ -10,7 +10,6 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  flex-shrink: none;
-  position: absolute;
+  position: relative;
 }
 </style>
