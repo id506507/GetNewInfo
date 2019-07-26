@@ -12,7 +12,8 @@ import axios from 'axios';
 @Component
 export default class UsefulPage extends Vue{
     async asyncData(){
-        const proxyurl='https://test.cors.workers.dev/?';
+        console.log('This is sop');
+        const proxyurl='https://thingproxy.freeboard.io/fetch/';
         let [waiting]=await Promise.all([
             axios.get(proxyurl+'http://www.ha.org.hk/opendata/sop/sop-waiting-time-tc.json'),
         ])
