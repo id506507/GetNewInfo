@@ -46,7 +46,7 @@ export default {
     '@gauseen/nuxt-proxy',
     ['@nuxtjs/component-cache',{
       max:10,
-      maxAge:100,
+      maxAge:10,
     }],
   ],
   /*

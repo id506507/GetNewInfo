@@ -6,12 +6,12 @@
                 <li class="nav-item active">
                     <nuxt-link to="/" class="nav-link">{{$t('index')}}</nuxt-link>
                 </li>
-                <li class="nav-item active">
+                <!-- <li class="nav-item active">
                     <nuxt-link to="/aedwtdata" class="nav-link">{{$t('waiting')}}</nuxt-link>
                 </li>
                 <li class="nav-item active">
                     <nuxt-link to="/sop" class="nav-link">{{$t('sop')}}</nuxt-link>
-                </li>
+                </li> -->
                 <li class="nav-item active">
                     <nuxt-link to="/weather" class="nav-link">{{$t('weather')}}</nuxt-link>
                 </li>
