@@ -5,23 +5,25 @@
                      <div v-else>無</div>
         </div>
         <div class="detail">
-            詳細天氣警告：
+            詳細天氣警告&nbsp;(&nbsp;{{Detail[0].updateTime}}&nbsp;)：
             <div v-for="item in Detail[0].contents" :key="item">
-                    <div>{{item}}</div>
+                    <div class="detailItem">{{item}}</div>
             </div>
-            更新時間：{{Detail[0].updateTime}}
         </div>
-        <div class="weather">
-            本港地區天氣報告：
+        <div>
+            本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)：
             <div v-for="item in Weather.temperature.data" :key="item">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title">{{item.place}}</h6>
-                        <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
-                    </div>
+                <div class="card" style="width: 9rem;">
+                        <div class="card-body">
+                            <h6 class="card-title">{{item.place}}</h6>
+                            <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
+                        </div>
                 </div>
             </div>
         </div>
+            
+        
+        <div style="height:2000px"></div>
     </div>
 </template>
 <script lang="ts">
@@ -44,11 +46,20 @@ export default class WeatherPage extends Vue{
 }
 </script>
 <style>
+.line{
+    float:left;
+}
+.detailItem{
+    margin-top: 1%;
+}
 .weather{
     margin-bottom: 1%;
 }
 .card{
-    width:13%;
+    /* width:100%; */
+    margin-top: 1%;
+    margin-right: 0.5%;
+    float: left;
 }
 .card-title{
     font-weight: bold;
