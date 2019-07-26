@@ -7,7 +7,7 @@
 </template>
 <style>
 #footer {
-  bottom: 100;
+  bottom: 0;
   width: 100%;
   text-align: center;
   flex-shrink: none;

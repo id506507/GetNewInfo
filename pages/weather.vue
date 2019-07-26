@@ -6,18 +6,19 @@
         </div>
         
         <div class="dis">
-            本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)：
+            <div>本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)：</div>
+            <div class="temp">
             <div v-for="item in Weather.temperature.data" :key="item">
-                <div class="card" style="width: 9rem;">
+                <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">{{item.place}}</h6>
                             <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
                         </div>
                 </div>
             </div>
+            </div>
         </div>
-        
-        <div style="height:800px"></div>
+        濕度：<div>{{Weather.humidity.data[0].value}}%</div>
     </div>
 </template>
 <script lang="ts">
@@ -42,12 +43,13 @@ export default class WeatherPage extends Vue{
 <style>
 .dis{
     margin-bottom: 1%;
+    width: 100%
 }
-.rain{
-    
+.temp{
+    width: 100%;
 }
 .card{
-    /* width:100%; */
+    width: 9rem;
     margin-top: 1%;
     margin-right: 0.5%;
     float: left;
