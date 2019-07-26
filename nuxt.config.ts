@@ -44,7 +44,10 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
     '@gauseen/nuxt-proxy',
-    '@nuxtjs/component-cache',
+    ['@nuxtjs/component-cache',{
+      max:10,
+      maxAge:100,
+    }],
   ],
   /*
   ** Axios module configuration
