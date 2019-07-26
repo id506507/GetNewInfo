@@ -23,9 +23,9 @@
         <br>
         <div>
             <div class="title">天氣預報</div>
-            <div class="cards">一般天氣預測：{{Flws.generalSituation}}</div>
-            <div class="cards" v-if="Flws.tcInfo!=''">颱風預測：{{Flws.tcInfo}}</div>
-            <div class="cards" v-if="Flws.fireDangerWarning!=''">火災危險警告：{{Flws.fireDangerWarning}}</div>
+            <div class="cards">一般天氣預測：{{Flws.generalSituation}}</div><br>
+            <div class="cards" v-if="Flws.tcInfo!=''">颱風預測：{{Flws.tcInfo}}</div><br>
+            <div class="cards" v-if="Flws.fireDangerWarning!=''">火災危險警告：{{Flws.fireDangerWarning}}</div><br>
             <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div>
         </div>
         <div style="height:500px"></div>
@@ -68,6 +68,6 @@ export default class WeatherDetail extends Vue{
     font-size: 90%;
 }
 .cards{
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
 }
 </style>
