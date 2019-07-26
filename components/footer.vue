@@ -10,7 +10,7 @@
   bottom: 100;
   width: 100%;
   text-align: center;
-  /* flex-shrink: none; */
+  flex-shrink: none;
   position: absolute;
 }
 </style>

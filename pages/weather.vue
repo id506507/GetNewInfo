@@ -4,6 +4,7 @@
         特別天氣提示：<div v-if="Special.swt!=''">{{Special.swt}}</div>
                      <div v-else>無</div>
         </div>
+        
         <div class="dis">
             本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)：
             <div v-for="item in Weather.temperature.data" :key="item">
@@ -15,16 +16,8 @@
                 </div>
             </div>
         </div>
-        <div class="rain">
-            雨量
-            <div v-for="item in Weather.rainfall.data" :key="item">
-                {{item.name}}
-                    <!-- <div v-if=""></div> -->
-            </div>
-        </div>
-            
         
-        <div style="height:2000px"></div>
+        <div style="height:800px"></div>
     </div>
 </template>
 <script lang="ts">
@@ -52,15 +45,6 @@ export default class WeatherPage extends Vue{
 }
 .rain{
     
-}
-.line{
-    float:left;
-}
-.detailItem{
-    margin-top: 1%;
-}
-.weather{
-    margin-bottom: 1%;
 }
 .card{
     /* width:100%; */

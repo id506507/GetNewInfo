@@ -3,5 +3,6 @@
     "waiting":"急症室等候時間",
     "sop":"專科門診新症輪候時間",
     "update":"更新頻率： 每15分鐘",
-    "weather":"天氣"
+    "weather":"天氣",
+    "weather_detail":"詳細天氣報告"
 }

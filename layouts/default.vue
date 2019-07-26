@@ -3,6 +3,7 @@
     <NavBar/>
     <br>
     <nuxt />
+    <br>
     <Footer/>
   </div>
 </template>
@@ -32,7 +33,7 @@ html {
   height: 100%;
 }
 
-*,
+/* *,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -66,5 +67,5 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
+} */
 </style>

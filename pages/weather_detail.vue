@@ -47,5 +47,3 @@ export default class WeatherDetail extends Vue{
     font-size: 90%;
 }
 </style>
-
-
