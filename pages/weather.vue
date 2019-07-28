@@ -1,7 +1,11 @@
 <template>
     <div class="container">
         <div class="special">
-        特別天氣提示<div v-if="Special.swt!=''">{{Special.swt}}</div>
+        特別天氣提示
+        <div v-if="Special.swt!=''">
+            {{Special.swt.desc}}
+            {{Special.swt.updateTime}}
+        </div>
                      <div v-else>無</div>
         </div>
         <div>濕度<div>{{Weather.humidity.data[0].value}}%</div></div><br>

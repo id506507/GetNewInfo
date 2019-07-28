@@ -2,16 +2,22 @@
     <div class="container">
         <div class="detail">
             <div class="title">詳細天氣警告</div>
-            <div v-for="item in Detail[0].contents" :key="item">
-                    <div class="detailItem">{{item}}</div>
-            </div>
+                <div v-if="Detail">
+                    <div v-for="item in Detail[0].contents" :key="item">
+                            <div class="detailItem">{{item}}</div>
+                    </div>
+                </div>
+                <div v-else>無</div>
         </div>
         <br>
         <div>
             <div class="title">天氣警告</div>
-            <div v-for="item in Warning" :key="item">
-                <div class="tag">{{item.name}}</div>
-            </div>
+                <div v-if="Warning.length==0">
+                    <div v-for="item in Warning" :key="item">
+                        <div class="tag">{{item.name}}</div>
+                    </div>
+                </div>
+            <div v-else>無</div>
         </div>
         <br>
         <div>
