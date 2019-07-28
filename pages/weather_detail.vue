@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div style="height:1000px"></div>
+        <div style="height:2000px"></div>
     </div>
 </template>
 <script lang="ts">
@@ -77,10 +77,10 @@ export default class WeatherDetail extends Vue{
 }
 </script>
 <style>
-.card{
+.card-body{
     width: 9rem;
     margin-right: 0.5%;
-    float: left;
+    /* float: left; */
 }
 .subtitle{
     font-weight: bold;
