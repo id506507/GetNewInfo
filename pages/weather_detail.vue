@@ -59,19 +59,21 @@ import axios from 'axios';
 @Component
 export default class WeatherDetail extends Vue{
     async asyncData(){
-        let [detail,warning,flws,raining,nine]=await Promise.all([
+        let [detail,warning,flws,raining,nine,test]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc')
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc'),
+        axios.get('http://resource.data.one.gov.hk/td/en/specialtrafficnews.xml')
     ])
     return{
             Detail:detail.data.details,
             Warning:warning.data,
             Flws:flws.data,
             Raining:raining.data.rainfall,
-            Nine:nine.data
+            Nine:nine.data,
+            Test:test.data
         }
     }
 }
