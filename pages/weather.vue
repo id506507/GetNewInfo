@@ -8,7 +8,17 @@
                 {{Special.swt.updateTime}}
             </div>
                 <div v-else>無</div>
-            </div>
+        </div>
+        <div>
+            <p class="special">天氣警告</p>
+                <div v-if="Object.keys(Warning).length!=0">
+                    <div v-for="(item,index) in Warning" :key="index">
+                        <div class="tag">{{item.name}}</div>
+                        <div class="time">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD LTS')}}</div>
+                    </div>
+                </div>
+                <div v-else><div>無</div></div>
+        </div>
         <div>
             <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
         </div>
@@ -27,7 +37,7 @@
                     </div>
                 </b-card-group>
             </div>
-            <p class="time">時間：(&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}&nbsp;)</p>
+            <p class="time">時間：&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}</p>
             <!-- <div class="temp">
             <div v-for="(item,index) in Weather.temperature.data" :key="index">
                 <div class="card">
@@ -48,20 +58,26 @@ import moment from 'moment';
 @Component
 export default class WeatherPage extends Vue{
     async asyncData(){
-        let [special,weather,detail]=await Promise.all([
+        let [special,weather,detail,warning]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc')
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc')
     ])
     return{
             Special:special.data,
             Weather:weather.data,
             Detail:detail.data.details,
+            Warning:warning.data
         }
     }
 }
 </script>
 <style>
+.tag{
+    font-weight: bold;
+    color: deeppink;
+}
 h6{
     font-weight: bold;
 }

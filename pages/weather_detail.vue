@@ -11,18 +11,6 @@
         </div>
         <br>
         <div>
-            <p class="title">天氣警告</p>
-                <div v-if="Object.keys(Warning).length!=0">
-                    <div v-for="(item,index) in Warning" :key="index">
-                        <div class="tag">{{item.name}}</div>
-                        <div class="tag">生效時間：{{$moment(item.issueTime).format('YYYY-MM-DD LTS')}}</div>
-                        <div class="tag">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD LTS')}}</div>
-                    </div>
-                </div>
-                <div v-else><div>無</div></div>
-        </div>
-        <br>
-        <div>
             <p class="title">雨量</p>
             <div>
                 <b-card-group>
@@ -122,9 +110,6 @@ export default class WeatherDetail extends Vue{
 }
 .detailItem{
     margin-bottom: 0.5%;
-}
-.tag{
-    margin-top: 1%;
 }
 .title{
     font-weight: bold;

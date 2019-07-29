@@ -20,7 +20,7 @@ export default {
 
 <style>
 .space{
-  height:700px;
+  height:665px;
 }
 .links {
   padding-top: 15px;
