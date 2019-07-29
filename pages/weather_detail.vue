@@ -12,9 +12,11 @@
         <br>
         <div>
             <div class="title">天氣警告</div>
-                <div v-if="Warning.length==0">
-                    <div v-for="item in Warning" :key="item">
+                <div v-if="Warning.length!=0">
+                    <div v-for="(item,index) in Warning" :key="index">
                         <div class="tag">{{item.name}}</div>
+                        <div class="tag">生效時間：{{item.issueTime}}</div>
+                        <div class="tag">有效時間：{{item.expireTime}}</div>
                     </div>
                 </div>
             <div v-else>無</div>
@@ -22,7 +24,7 @@
         <br>
         <div>
             <div class="title">雨量</div>
-            <div v-for="item in Raining.data" :key="item">
+            <div v-for="(item,index) in Raining.data" :key="index">
                 {{item.place}}：{{item.max}}{{item.unit}}
             </div>
         </div>
@@ -35,7 +37,7 @@
             <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div><br>
             <div class="subtitle">九天天氣預報</div>
             <div>{{Nine.generalSituation}}</div><br>
-            <div v-for="item in Nine.weatherForecast" :key="item">
+            <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">{{item.forecastDate}}</h6>
@@ -59,6 +61,7 @@ import axios from 'axios';
 @Component
 export default class WeatherDetail extends Vue{
     async asyncData(){
+        console.log('This is weather_detail asyncData');
         let [detail,warning,flws,raining,nine]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc'),

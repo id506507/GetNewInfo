@@ -12,7 +12,7 @@
         <div class="dis">
             <div>本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)</div>
             <div class="temp">
-            <div v-for="item in Weather.temperature.data" :key="item">
+            <div v-for="(item,index) in Weather.temperature.data" :key="index">
                 <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">{{item.place}}</h6>
