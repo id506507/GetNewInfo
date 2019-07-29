@@ -15,8 +15,8 @@
                 <div v-if="Object.keys(Warning).length!=0">
                     <div v-for="(item,index) in Warning" :key="index">
                         <div class="tag">{{item.name}}</div>
-                        <div class="tag">生效時間：{{$moment(item.issueTime).format('YYYY-MM-DD hh:mm:ss')}}</div>
-                        <div class="tag">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD hh:mm:ss')}}</div>
+                        <div class="tag">生效時間：{{$moment(item.issueTime).format('YYYY-MM-DD LTS')}}</div>
+                        <div class="tag">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD LTS')}}</div>
                     </div>
                 </div>
                 <div v-else><div>無</div></div>
@@ -27,6 +27,7 @@
             <div v-for="(item,index) in Raining.data" :key="index">
                 {{item.place}}：{{item.max}}{{item.unit}}
             </div>
+            <div class="time">時間：{{$moment(Raining.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.endTime).format('LTS')}}</div>
         </div>
         <br>
         <div>
@@ -36,23 +37,19 @@
             <div class="cards" v-if="Flws.fireDangerWarning!=''">火災危險警告：{{Flws.fireDangerWarning}}</div><br>
             <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div><br>
             <div class="subtitle">九天天氣預報</div>
-            <div>{{Nine.generalSituation}}</div><br>
+            <div>{{Nine.generalSituation}}</div>
             <div v-for="(item,index) in Nine.weatherForecast" :key="index">
-                <div class="card">
+                <div class="card" style="width:100%;">
                         <div class="card-body">
-                            <h6 class="card-title">{{$moment(item.forecastDate).format('YYYY-MM-DD')}}</h6>
-                            <h6 class="card-title">({{item.week}})</h6>
-                            <p class="card-text">風力：{{item.forecastWind}}</p>
-                            <p class="card-text">{{item.forecastWeather}}</p>
-                            <p class="card-text">最高溫度：{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
-                            <p class="card-text">最低溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}</p>
-                            <p class="card-text">最高濕度：{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
-                            <p class="card-text">最低濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}</p>
+                            <h6 class="card-title">{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
+                            <p class="card-text">{{item.forecastWeather}}{{item.forecastWind}}</p>
+                            <p class="card-text">溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
+                            <p class="card-text">濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
                         </div>
                 </div>
             </div>
         </div>
-        <div style="height:2000px"></div>
+        <!-- <div style="height:2500px"></div> -->
     </div>
 </template>
 <script lang="ts">
@@ -81,11 +78,16 @@ export default class WeatherDetail extends Vue{
 }
 </script>
 <style>
-.card-body{
-    width: 9rem;
-    margin-right: 0.5%;
-    /* float: left; */
+.time{
+    font-size: 80%;
+    margin-top: 0.5%;
 }
+/* .card{
+    width: 9rem;
+    width: 100%;
+    margin-right: 0.5%;
+    float: left;
+} */
 .subtitle{
     font-weight: bold;
     font-size: 101%;
