@@ -62,6 +62,9 @@ export default class WeatherPage extends Vue{
 }
 </script>
 <style>
+h6{
+    font-weight: bold;
+}
 .time{
     font-size: 80%;
     margin-top: 0.5%;

@@ -15,7 +15,8 @@ export default {
       { 'http-equiv': 'expires', content: '0' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' }
     ]
   },
   /*
@@ -49,6 +50,7 @@ export default {
       maxAge:0,
     }],
     ['@nuxtjs/moment'],
+    ['nuxt-webfontloader'],
   ],
   /*
   ** Axios module configuration
@@ -72,14 +74,19 @@ export default {
   router:{
     base:'/GetNewInfo/'
   },
-  proxy:[
-    'https://www.ha.org.hk/opendata/*/*.json'
-  ],
-  proxyTable:{
-    '/api':{
-      target:'https://id506507.github.io/GetNewInfo/',
-      pathRewrite:{'/api':''}
-    }
-  },
+  // webfontloader:{
+  //   google:{
+  //     families:['Lato:400,700']
+  //   },
+  // }
+  // proxy:[
+  //   'https://www.ha.org.hk/opendata/*/*.json'
+  // ],
+  // proxyTable:{
+  //   '/api':{
+  //     target:'https://id506507.github.io/GetNewInfo/',
+  //     pathRewrite:{'/api':''}
+  //   }
+  // },
   
 }

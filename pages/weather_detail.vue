@@ -24,28 +24,18 @@
         <br>
         <div>
             <p class="title">雨量</p>
-            <!-- <b-table :items="Raining.data"></b-table> -->
-            <!-- <table class="table table-sm table-bordered">
-                <thead>
-                <tr>
-                    <th v-for="(item,index) in Raining.data" :key="index">{{item.place}}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td v-for="(item,index) in Raining.data" :key="index">{{item.max}}&nbsp;{{item.unit}}</td>
-                </tr>
-                </tbody>
-            </table> -->
-            
             <div>
                 <b-card-group>
-                    <div>
-                        <b-card style="max-width:50rem;" v-for="(item,index) in Raining.data" :key="index">
-                            <b-card-text>
-                                <h6>{{item.place}}</h6>{{item.max}}&nbsp;{{item.unit}}
-                            </b-card-text>
-                        </b-card>
+                    <div v-for="(item,index) in Raining.data" :key="index" >
+                        <div v-if="item.max!=0">
+                            <b-card style="width:9rem;">
+                                <h6>{{item.place}}</h6>
+                                {{item.max}} {{item.unit}}
+                                <!-- <b-card-text>
+                                </b-card-text> -->
+                            </b-card>
+                        </div>
+                        
                     </div>
                 </b-card-group>
             </div>
@@ -64,9 +54,9 @@
                         <b-card style="width:100%" v-for="(item,index) in Nine.weatherForecast" :key="index">
                             <b-card-text>
                                 <h6>{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
-                                <p> {{item.forecastWeather}}{{item.forecastWind}}</p>
-                                <p>溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
-                                <p>濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
+                                <div> {{item.forecastWeather}}{{item.forecastWind}}</div>
+                                <div>溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</div>
+                                <div>濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</div>
                             </b-card-text>
                         </b-card>
                     </div>
@@ -112,7 +102,7 @@ export default class WeatherDetail extends Vue{
 }
 </script>
 <style>
-h6{
+.h6{
     font-weight: bold;
 }
 .time{
