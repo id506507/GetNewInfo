@@ -12,14 +12,14 @@
         <br>
         <div>
             <div class="title">天氣警告</div>
-                <div v-if="Warning.length!=0">
+                <div v-if="Object.keys(Warning).length!=0">
                     <div v-for="(item,index) in Warning" :key="index">
                         <div class="tag">{{item.name}}</div>
-                        <div class="tag">生效時間：{{item.issueTime}}</div>
-                        <div class="tag">有效時間：{{item.expireTime}}</div>
+                        <div class="tag">生效時間：{{$moment(item.issueTime).format('YYYY-MM-DD hh:mm:ss')}}</div>
+                        <div class="tag">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD hh:mm:ss')}}</div>
                     </div>
                 </div>
-            <div v-else>無</div>
+                <div v-else><div>無</div></div>
         </div>
         <br>
         <div>
@@ -40,7 +40,7 @@
             <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{item.forecastDate}}</h6>
+                            <h6 class="card-title">{{$moment(item.forecastDate).format('YYYY-MM-DD')}}</h6>
                             <h6 class="card-title">({{item.week}})</h6>
                             <p class="card-text">風力：{{item.forecastWind}}</p>
                             <p class="card-text">{{item.forecastWeather}}</p>
@@ -58,10 +58,11 @@
 <script lang="ts">
 import { Vue,Component } from "nuxt-property-decorator";
 import axios from 'axios';
+import moment from 'moment';
 @Component
 export default class WeatherDetail extends Vue{
     async asyncData(){
-        console.log('This is weather_detail asyncData');
+        console.log('This is weather_detail asyncData.');
         let [detail,warning,flws,raining,nine]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc'),

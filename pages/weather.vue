@@ -10,7 +10,7 @@
         </div>
         <div>濕度<div>{{Weather.humidity.data[0].value}}%</div></div><br>
         <div class="dis">
-            <div>本港地區天氣報告&nbsp;(&nbsp;{{Weather.temperature.recordTime}}&nbsp;)</div>
+            <div>本港地區天氣報告&nbsp;(&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD hh:mm:ss') }}&nbsp;)</div>
             <div class="temp">
             <div v-for="(item,index) in Weather.temperature.data" :key="index">
                 <div class="card">
@@ -22,15 +22,17 @@
             </div>
             </div>
         </div>
-        
+        {{now}}
         <div style="height:5000px"></div>
     </div>
 </template>
 <script lang="ts">
 import { Vue,Component } from "nuxt-property-decorator";
 import axios from 'axios';
+import moment from 'moment';
 @Component
 export default class WeatherPage extends Vue{
+    // now=moment().format('LLLL')
     async asyncData(){
         let [special,weather,detail]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang=tc'),

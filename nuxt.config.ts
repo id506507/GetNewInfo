@@ -21,7 +21,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#ff0000' },
   /*
   ** Global CSS
   */
@@ -48,6 +48,7 @@ export default {
       max:0,
       maxAge:0,
     }],
+    ['@nuxtjs/moment'],
   ],
   /*
   ** Axios module configuration
