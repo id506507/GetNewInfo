@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="detail">
-            <div class="title">詳細天氣警告</div>
+            <p class="title">詳細天氣警告</p>
                 <div v-if="Detail">
                     <div v-for="item in Detail[0].contents" :key="item">
                             <div class="detailItem">{{item}}</div>
@@ -11,7 +11,7 @@
         </div>
         <br>
         <div>
-            <div class="title">天氣警告</div>
+            <p class="title">天氣警告</p>
                 <div v-if="Object.keys(Warning).length!=0">
                     <div v-for="(item,index) in Warning" :key="index">
                         <div class="tag">{{item.name}}</div>
@@ -23,20 +23,40 @@
         </div>
         <br>
         <div>
-            <div class="title">雨量</div>
-            <div v-for="(item,index) in Raining.data" :key="index">
-                {{item.place}}：{{item.max}}{{item.unit}}
+            <p class="title">雨量</p>
+            <!-- <b-table :items="Raining.data"></b-table> -->
+            <!-- <table class="table table-sm table-bordered">
+                <thead>
+                <tr>
+                    <th v-for="(item,index) in Raining.data" :key="index">{{item.place}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td v-for="(item,index) in Raining.data" :key="index">{{item.max}}&nbsp;{{item.unit}}</td>
+                </tr>
+                </tbody>
+            </table> -->
+            
+            <div>
+                <b-card-group>
+                    <div>
+                        <b-card style="max-width:50rem;" v-for="(item,index) in Raining.data" :key="index">
+                            <b-card-text>
+                                <h6>{{item.place}}</h6>{{item.max}}&nbsp;{{item.unit}}
+                            </b-card-text>
+                        </b-card>
+                    </div>
+                </b-card-group>
             </div>
-            <div class="time">時間：{{$moment(Raining.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.endTime).format('LTS')}}</div>
+            <p class="time">時間：{{$moment(Raining.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.endTime).format('LTS')}}</p>
         </div>
         <br>
         <div>
-            <div class="title">天氣預報</div>
-            <div class="cards">一般天氣預測：{{Flws.generalSituation}}</div><br>
-            <div class="cards" v-if="Flws.tcInfo!=''">颱風預測：{{Flws.tcInfo}}</div><br>
-            <div class="cards" v-if="Flws.fireDangerWarning!=''">火災危險警告：{{Flws.fireDangerWarning}}</div><br>
-            <div class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</div><br>
-            <div class="subtitle">九天天氣預報</div>
+            <p class="title">天氣預報</p>
+            <p class="cards">一般天氣預測：{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
+            <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
+            <p class="subtitle">九天天氣預報</p>
             <div>{{Nine.generalSituation}}</div>
             <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card" style="width:100%;">
