@@ -58,7 +58,21 @@
             <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
             <p class="subtitle">九天天氣預報</p>
             <div>{{Nine.generalSituation}}</div>
-            <div v-for="(item,index) in Nine.weatherForecast" :key="index">
+            <div>
+                <b-card-group>
+                    <div>
+                        <b-card style="width:100%" v-for="(item,index) in Nine.weatherForecast" :key="index">
+                            <b-card-text>
+                                <h6>{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
+                                <p> {{item.forecastWeather}}{{item.forecastWind}}</p>
+                                <p>溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
+                                <p>濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
+                            </b-card-text>
+                        </b-card>
+                    </div>
+                </b-card-group>
+            </div>
+            <!-- <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card" style="width:100%;">
                         <div class="card-body">
                             <h6 class="card-title">{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
@@ -67,7 +81,7 @@
                             <p class="card-text">濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
                         </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- <div style="height:2500px"></div> -->
     </div>
@@ -98,6 +112,9 @@ export default class WeatherDetail extends Vue{
 }
 </script>
 <style>
+h6{
+    font-weight: bold;
+}
 .time{
     font-size: 80%;
     margin-top: 0.5%;

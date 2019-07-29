@@ -1,17 +1,34 @@
 <template>
     <div class="container">
-        <div class="special">
-        特別天氣提示
-        <div v-if="Special.swt!=''">
-            {{Special.swt.desc}}
-            {{Special.swt.updateTime}}
+        <div>
+            <div class="special">
+            <p>特別天氣提示</p></div>
+            <div v-if="Special.swt!=''">
+                {{Special.swt.desc}}
+                {{Special.swt.updateTime}}
+            </div>
+                <div v-else>無</div>
+            </div>
+        <div>
+            <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
         </div>
-                     <div v-else>無</div>
-        </div>
-        <div>濕度<div>{{Weather.humidity.data[0].value}}%</div></div>
-        <div class="dis">
-            <div>本港地區天氣報告&nbsp;(&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}&nbsp;)</div>
-            <div class="temp">
+        <div>
+            <p class="title">本港地區天氣報告</p>
+            <div>
+                <b-card-group>
+                    <div>
+                        <b-card style="width:9rem;" v-for="(item,index) in Weather.temperature.data" :key="index">
+                            <b-card-text>
+                                <h6>{{item.place}}</h6>
+                                
+                            <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
+                            </b-card-text>
+                        </b-card>
+                    </div>
+                </b-card-group>
+            </div>
+            <p class="time">時間：(&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}&nbsp;)</p>
+            <!-- <div class="temp">
             <div v-for="(item,index) in Weather.temperature.data" :key="index">
                 <div class="card">
                         <div class="card-body">
@@ -20,9 +37,8 @@
                         </div>
                 </div>
             </div>
-            </div>
-        </div>
-        <!-- <div style="height:5000px"></div> -->
+            </div>-->
+        </div> 
     </div>
 </template>
 <script lang="ts">
@@ -46,9 +62,9 @@ export default class WeatherPage extends Vue{
 }
 </script>
 <style>
-.dis{
-    margin-bottom: 1%;
-    width: 100%
+.time{
+    font-size: 80%;
+    margin-top: 0.5%;
 }
 .temp{
     width: 100%;
@@ -63,8 +79,9 @@ export default class WeatherPage extends Vue{
     font-weight: bold;
 }
 .special{
-    margin-bottom: 1%;
     color: red;
+    font-weight: bold;
+    font-size: 120%;
 }
 .special>div{
     color: brown;
@@ -72,7 +89,11 @@ export default class WeatherPage extends Vue{
 .detail{
 margin-bottom: 1%;
 }
-
+.title{
+    font-weight: bold;
+    font-size: 120%;
+    color:darkmagenta;
+}
 </style>
 
 
