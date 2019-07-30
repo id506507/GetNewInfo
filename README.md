@@ -20,3 +20,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+##Link
+[https://id506507.github.io/GetNewInfo/](https://id506507.github.io/GetNewInfo/ "GetNewInfo")

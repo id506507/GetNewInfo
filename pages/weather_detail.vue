@@ -10,7 +10,6 @@
                 </div>
                 <div v-else>無</div>
         </div>
-        <br>
         <div v-if="Raining.tcmessage!=''">
             <p class="title">颱風消息</p>
             <div>{{Raining.tcmessage}}</div>
@@ -20,32 +19,33 @@
             <p class="title">雨量</p>
             <div>
                 <b-card-group>
-                    <div v-for="(item,index) in Raining.rainfall.data" :key="index" >
+                    <div v-for="(item,index) in Raining.rainfall.data" :key="index">
                         <div v-if="item.max!=0">
                             <b-card style="width:9rem;">
-                                <h6>{{item.place}}</h6>
-                                {{item.max}} {{item.unit}}
-                                <!-- <b-card-text>
-                                </b-card-text> -->
+                                <b-card-sub-title>
+                                {{item.place}}
+                                </b-card-sub-title>
+                                <b-card-text>
+                                    {{item.max}} {{item.unit}}
+                                </b-card-text> 
                             </b-card>
                         </div>
                         
                     </div>
                 </b-card-group>
             </div>
-            <p class="time">時間：{{$moment(Raining.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.endTime).format('LTS')}}</p>
+            <p class="time">時間：{{$moment(Raining.rainfall.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.rainfall.endTime).format('LTS')}}</p>
         </div>
-        <br>
-        <div>
+        <div v-if="Raining.lightning">
             <p class="title">雷暴</p>
             <div>
                 <b-card-group>
                     <div v-for="(item,index) in Raining.lightning.data" :key="index" >
                         <div>
                             <b-card style="width:8rem;">
-                                <h6>{{item.place}}</h6>
-                                <!-- <b-card-text>
-                                </b-card-text> -->
+                                <b-card-sub-title>
+                                    {{item.place}}
+                                </b-card-sub-title>
                             </b-card>
                         </div>
                         
@@ -54,13 +54,11 @@
             </div>
             <p class="time">時間：{{$moment(Raining.lightning.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.lightning.endTime).format('LTS')}}</p>
         </div>
-        <br>
         <div>
             <p class="title">紫外線指數</p>
             <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;指數：{{Raining.uvindex.data[0].value}}；強度：{{Raining.uvindex.data[0].desc}}</div>
             <p class="time">時間：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
-        <br>
         <div>
             <p class="title">天氣預報</p>
             <p class="cards">一般天氣預測：{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
@@ -72,12 +70,16 @@
                 <b-card-group>
                     <div>
                         <b-card style="width:100%" v-for="(item,index) in Nine.weatherForecast" :key="index">
+                            <b-card-sub-title>
+                                {{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})
+                            </b-card-sub-title>
+                            <br>
                             <b-card-text>
-                                <h6>{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
-                                <div> {{item.forecastWeather}}{{item.forecastWind}}</div>
-                                <div>溫度：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</div>
-                                <div>濕度：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</div>
+                                {{item.forecastWeather}}{{item.forecastWind}}
                             </b-card-text>
+                            <b-card-text>溫度：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</b-card-text>
+                            <b-card-text>濕度：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</b-card-text>
+                            
                         </b-card>
                     </div>
                 </b-card-group>

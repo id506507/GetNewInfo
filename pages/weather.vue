@@ -9,7 +9,6 @@
             </div>
                 <div v-else>無</div>
         </div>
-        <br>
         <div>
             <p class="special">天氣警告</p>
                 <div v-if="Object.keys(Warning).length!=0">
@@ -20,22 +19,21 @@
                 </div>
                 <div v-else><div>無</div></div>
         </div>
-        <br>
         <div>
             <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
             <p class="time">時間：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
-        <br>
         <div>
             <p class="title">本港地區天氣報告</p>
             <div>
                 <b-card-group>
                     <div>
                         <b-card style="width:9rem;" v-for="(item,index) in Weather.temperature.data" :key="index">
+                            <b-card-sub-title>
+                                {{item.place}}
+                            </b-card-sub-title>
                             <b-card-text>
-                                <h6>{{item.place}}</h6>
-                                
-                            <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
+                                {{item.value}}&#176;{{item.unit}}
                             </b-card-text>
                         </b-card>
                     </div>
