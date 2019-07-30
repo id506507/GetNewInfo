@@ -2,14 +2,35 @@
   <div class="container">
     <!-- <div>{{$t('waiting')}}：<nuxt-link to="/aedwtdata">{{$t('waiting')}}</nuxt-link></div>
     <div>{{$t('sop')}}：<nuxt-link to="/sop">{{$t('sop')}}</nuxt-link></div> -->
-    <div>{{$t('weather')}}：<nuxt-link to="/weather">{{$t('weather')}}</nuxt-link></div>
-    <div>{{$t('weather_detail')}}：<nuxt-link to="/weather_detail">{{$t('weather_detail')}}</nuxt-link></div>
+    <div class="row">
+      <div class="element">
+            <nuxt-link to="/weather">
+              <div class="icon">
+                <i class="material-icons">brightness_low</i>
+              </div>
+              <div>
+                {{$t('weather')}}
+              </div>
+            </nuxt-link>
+      </div>
+      
+      <div class="element">
+        <nuxt-link to="/weather_detail">
+          <div class="icon">
+            <i class="material-icons">report</i>
+          </div>
+          <div>
+            {{$t('weather_detail')}}
+          </div>
+        </nuxt-link>
+      </div>
+    </div>
+
     <div class="space"></div>
   </div>
 </template>
 
 <script>
-
 export default {
   components: {
     
@@ -20,12 +41,23 @@ export default {
 
 <style>
 .space{
-  height:665px;
-}
-.links {
-  padding-top: 15px;
+  height:650px;
 }
 .container>div{
   margin-bottom: 1%;
+}
+.material-icons{
+  font-size:50px;
+}
+.element{
+  width: auto;
+  position: relative;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.icon{
+  margin: auto;
+  position: relative;
+  left: 30%;
 }
 </style>

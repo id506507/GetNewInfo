@@ -16,13 +16,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' }
+      { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' },//google font
+      {rel:'stylesheet', href:'https://fonts.googleapis.com/icon?family=Material+Icons'}//material icon
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#ff0000' },
+  loading: { color: '#000000' },
   /*
   ** Global CSS
   */

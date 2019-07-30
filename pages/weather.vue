@@ -56,7 +56,10 @@
 <script lang="ts">
 import { Vue,Component } from "nuxt-property-decorator";
 import axios from 'axios';
-import moment from 'moment';
+import moment, { locale } from 'moment';
+import Vuei18n from 'vue-i18n';
+Vue.use(Vuei18n);
+const i18n=new Vuei18n();
 @Component
 export default class WeatherPage extends Vue{
     async asyncData(){
@@ -72,6 +75,10 @@ export default class WeatherPage extends Vue{
             Detail:detail.data.details,
             Warning:warning.data
         }
+    }
+    async testData(){
+        this.$i18n.locale;
+        let special=await this.$i18n.getLocaleMessage(this.$i18n.locale,)
     }
 }
 </script>
