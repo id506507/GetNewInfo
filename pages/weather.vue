@@ -12,10 +12,10 @@
         <div>
             <p class="special">天氣警告</p>
                 <div v-if="Object.keys(Warning).length!=0">
-                    <div v-for="(item,index) in Warning" :key="index">
-                        <div>{{item.name}}</div>
-                        <div class="time">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD LTS')}}</div>
+                    <div v-for="(item,index) in Weather.warningMessage" :key="index">
+                        <div>{{item}}</div>
                     </div>
+                    <div class="time">有效時間：{{$moment(Weather.iconUpdateTime).format('YYYY-MM-DD LTS')}}</div>
                 </div>
                 <div v-else><div>無</div></div>
         </div>
@@ -63,16 +63,14 @@ const i18n=new Vuei18n();
 @Component
 export default class WeatherPage extends Vue{
     async asyncData(){
-        let [special,weather,detail,warning]=await Promise.all([
+        let [special,weather,warning]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc')
     ])
     return{
             Special:special.data,
             Weather:weather.data,
-            Detail:detail.data.details,
             Warning:warning.data
         }
     }

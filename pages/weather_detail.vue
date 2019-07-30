@@ -12,7 +12,7 @@
         </div>
         <div v-if="Raining.tcmessage!=''">
             <p class="title">颱風消息</p>
-            <div>{{Raining.tcmessage}}</div>
+            <div>{{Raining.tcmessage[0]}}</div>
         </div>
         <br>
         <div>
