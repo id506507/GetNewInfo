@@ -54,6 +54,7 @@ export default {
     ['@nuxtjs/moment'],
     ['nuxt-webfontloader'],
   ],
+  
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

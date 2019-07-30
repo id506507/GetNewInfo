@@ -63,6 +63,7 @@ const i18n=new Vuei18n();
 @Component
 export default class WeatherPage extends Vue{
     async asyncData(){
+        console.log(i18n.locale);
         let [special,weather,warning]=await Promise.all([
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
@@ -73,10 +74,6 @@ export default class WeatherPage extends Vue{
             Weather:weather.data,
             Warning:warning.data
         }
-    }
-    async testData(){
-        this.$i18n.locale;
-        let special=await this.$i18n.getLocaleMessage(this.$i18n.locale,)
     }
 }
 </script>
