@@ -11,6 +11,11 @@
                 <div v-else>無</div>
         </div>
         <br>
+        <div v-if="Raining.tcmessage!=''">
+            <p class="title">颱風消息</p>
+            <div>{{Raining.tcmessage}}</div>
+        </div>
+        <br>
         <div>
             <p class="title">雨量</p>
             <div>
@@ -78,6 +83,18 @@
                 </b-card-group>
             </div>
             <p class="time">更新時間：{{$moment(Nine.updateTime).format('YYYY-MM-DD LTS')}}</p>
+            <div>
+                <p class="subtitle">海水溫度</p>
+                <div>{{Nine.seaTemp.place}}：{{Nine.seaTemp.value}}&#176;{{Nine.seaTemp.unit}}</div>
+                <p class="time">時間{{$moment(Nine.seaTemp.recordTime).format('YYYY-MM-DD LTS')}}</p>
+                <p class="subtitle">土壤溫度</p>
+                <div v-for="(item,index) in Nine.soilTemp" :key="index">
+                    <div>{{item.place}}</div>
+                    <div>深度：{{item.depth.value}}&nbsp;{{item.depth.unit}}</div>
+                    <div>溫度：{{item.value}}&#176;{{item.unit}}</div>
+                    <p class="time">時間：{{$moment(item.recordTime).format('YYYY-MM-DD LTS')}}</p>
+                </div>
+            </div>
             <!-- <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card" style="width:100%;">
                         <div class="card-body">
