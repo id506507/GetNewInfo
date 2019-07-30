@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' }
+      { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' }
     ]
   },
   /*
@@ -27,6 +27,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/style.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -57,7 +58,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL:'https://www.ha.org.hk/opendata',
+    // baseURL:'https://www.ha.org.hk/opendata',
     credentials: false,
     proxyHeaders:false
   },
@@ -74,11 +75,6 @@ export default {
   router:{
     base:'/GetNewInfo/'
   },
-  // webfontloader:{
-  //   google:{
-  //     families:['Lato:400,700']
-  //   },
-  // }
   // proxy:[
   //   'https://www.ha.org.hk/opendata/*/*.json'
   // ],

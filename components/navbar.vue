@@ -1,6 +1,6 @@
 <template>
-    <div class="sticky">
-        <b-navbar toggleable="lg" type="dark" variant="dark">
+    <div class="nav">
+        <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-top">
             <b-navbar-brand to="/">{{$t('index')}}</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -57,9 +57,8 @@ export default class NavBar extends Vue{
  .btn{
      font-size: 70%;
  }
- .sticky{
-    /* position: fixed;
-    width: 100%; */
- }
+ /* .nav{
+     margin-bottom: 8%;
+ } */
 </style>
 

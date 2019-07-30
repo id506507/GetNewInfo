@@ -4,24 +4,27 @@
             <div class="special">
             <p>特別天氣提示</p></div>
             <div v-if="Special.swt!=''">
-                {{Special.swt.desc}}
-                {{Special.swt.updateTime}}
+                <div>{{Special.swt[0].desc}}</div>
+                <div class="time">更新時間：{{$moment(Special.swt[0].updateTime).format('YYYY-MM-DD LTS')}}</div>
             </div>
                 <div v-else>無</div>
         </div>
+        <br>
         <div>
             <p class="special">天氣警告</p>
                 <div v-if="Object.keys(Warning).length!=0">
                     <div v-for="(item,index) in Warning" :key="index">
-                        <div class="tag">{{item.name}}</div>
+                        <div>{{item.name}}</div>
                         <div class="time">有效時間：{{$moment(item.expireTime).format('YYYY-MM-DD LTS')}}</div>
                     </div>
                 </div>
                 <div v-else><div>無</div></div>
         </div>
+        <br>
         <div>
             <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
         </div>
+        <br>
         <div>
             <p class="title">本港地區天氣報告</p>
             <div>

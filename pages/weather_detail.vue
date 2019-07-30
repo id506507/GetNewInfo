@@ -14,7 +14,7 @@
             <p class="title">雨量</p>
             <div>
                 <b-card-group>
-                    <div v-for="(item,index) in Raining.data" :key="index" >
+                    <div v-for="(item,index) in Raining.rainfall.data" :key="index" >
                         <div v-if="item.max!=0">
                             <b-card style="width:9rem;">
                                 <h6>{{item.place}}</h6>
@@ -31,6 +31,31 @@
         </div>
         <br>
         <div>
+            <p class="title">雷暴</p>
+            <div>
+                <b-card-group>
+                    <div v-for="(item,index) in Raining.lightning.data" :key="index" >
+                        <div>
+                            <b-card style="width:9rem;">
+                                <h6>{{item.place}}</h6>
+                                <!-- <b-card-text>
+                                </b-card-text> -->
+                            </b-card>
+                        </div>
+                        
+                    </div>
+                </b-card-group>
+            </div>
+            <p class="time">時間：{{$moment(Raining.lightning.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.lightning.endTime).format('LTS')}}</p>
+        </div>
+        <br>
+        <div>
+            <p class="title">紫外線指數</p>
+            <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;指數：{{Raining.uvindex.data[0].value}}；強度：{{Raining.uvindex.data[0].desc}}</div>
+            <p class="time">時間：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
+        </div>
+        <br>
+        <div>
             <p class="title">天氣預報</p>
             <p class="cards">一般天氣預測：{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
             <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
@@ -43,8 +68,8 @@
                             <b-card-text>
                                 <h6>{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
                                 <div> {{item.forecastWeather}}{{item.forecastWind}}</div>
-                                <div>溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</div>
-                                <div>濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</div>
+                                <div>溫度：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</div>
+                                <div>濕度：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</div>
                             </b-card-text>
                         </b-card>
                     </div>
@@ -83,7 +108,7 @@ export default class WeatherDetail extends Vue{
             Detail:detail.data.details,
             Warning:warning.data,
             Flws:flws.data,
-            Raining:raining.data.rainfall,
+            Raining:raining.data,
             Nine:nine.data,
         }
     }
