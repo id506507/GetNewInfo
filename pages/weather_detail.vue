@@ -6,6 +6,7 @@
                     <div v-for="item in Detail[0].contents" :key="item">
                             <div class="detailItem">{{item}}</div>
                     </div>
+                    <p class="time">更新時間：{{$moment(Detail[0].updateTime).format('YYYY-MM-DD LTS')}}</p>
                 </div>
                 <div v-else>無</div>
         </div>
@@ -36,7 +37,7 @@
                 <b-card-group>
                     <div v-for="(item,index) in Raining.lightning.data" :key="index" >
                         <div>
-                            <b-card style="width:9rem;">
+                            <b-card style="width:8rem;">
                                 <h6>{{item.place}}</h6>
                                 <!-- <b-card-text>
                                 </b-card-text> -->
@@ -59,6 +60,7 @@
             <p class="title">天氣預報</p>
             <p class="cards">一般天氣預測：{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
             <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
+            <p class="time">更新時間：{{$moment(Flws.updateTime).format('YYYY-MM-DD LTS')}}</p>
             <p class="subtitle">九天天氣預報</p>
             <div>{{Nine.generalSituation}}</div>
             <div>
@@ -75,6 +77,7 @@
                     </div>
                 </b-card-group>
             </div>
+            <p class="time">更新時間：{{$moment(Nine.updateTime).format('YYYY-MM-DD LTS')}}</p>
             <!-- <div v-for="(item,index) in Nine.weatherForecast" :key="index">
                 <div class="card" style="width:100%;">
                         <div class="card-body">

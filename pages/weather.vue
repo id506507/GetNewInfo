@@ -23,6 +23,7 @@
         <br>
         <div>
             <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
+            <p class="time">時間：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <br>
         <div>
