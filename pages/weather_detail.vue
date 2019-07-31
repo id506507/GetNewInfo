@@ -15,7 +15,7 @@
         <div v-if="Raining.tcmessage!=''">
             <p class="title">颱風消息</p>
             <div v-for="(item,index) in Raining.tcmessage" :key="index">
-                {{Raining.tcmessage[index]}}
+                {{item}}
             </div>
         </div>
         <br>

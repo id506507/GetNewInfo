@@ -18,8 +18,9 @@
                 <div v-if="Weather.warningMessage!=''">
                     <div v-for="(item,index) in Weather.warningMessage" :key="index">
                         <div>{{item}}</div>
+                        <p class="time">有效時間：{{$moment(Weather.iconUpdateTime).format('YYYY-MM-DD LTS')}}</p>
                     </div>
-                    <div class="time">有效時間：{{$moment(Weather.iconUpdateTime).format('YYYY-MM-DD LTS')}}</div>
+                    
                 </div>
                 <div v-else><div>無</div></div>
         </div>
