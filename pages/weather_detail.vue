@@ -58,7 +58,7 @@
             </div>
             <p class="time">時間：{{$moment(Raining.lightning.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.lightning.endTime).format('LTS')}}</p>
         </div>
-        <div>
+        <div v-if="Raining.uvindex!=''">
             <p class="title">紫外線指數</p>
             <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;指數：{{Raining.uvindex.data[0].value}}；強度：{{Raining.uvindex.data[0].desc}}</div>
             <p class="time">時間：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
