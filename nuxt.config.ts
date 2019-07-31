@@ -12,7 +12,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { 'http-equiv': 'pragma', content: 'no-cache' },
       { 'http-equiv': 'cache-control', content: 'no-cache' },
-      { 'http-equiv': 'expires', content: '0' }
+      { 'http-equiv': 'expires', content: '0' },
+      {theme_color:'$gray-800'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -47,6 +48,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
     '@gauseen/nuxt-proxy',
+    '@nuxtjs/pwa',
     ['@nuxtjs/component-cache',{
       max:0,
       maxAge:0,
