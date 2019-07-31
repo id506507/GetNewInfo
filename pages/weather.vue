@@ -4,8 +4,11 @@
             <div class="special">
             <p>特別天氣提示</p></div>
             <div v-if="Special.swt!=''">
-                <div>{{Special.swt[0].desc}}</div>
-                <div class="time">更新時間：{{$moment(Special.swt[0].updateTime).format('YYYY-MM-DD LTS')}}</div>
+                <div v-for="(item,index) in Special.swt" :key="index">
+                    <div>{{item.desc}}</div>
+                    <p class="time">更新時間：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
+                </div>
+                
             </div>
                 <div v-else>無</div>
         </div>
