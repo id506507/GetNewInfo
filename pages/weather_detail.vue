@@ -65,7 +65,8 @@
         </div>
         <div>
             <p class="title">天氣預報</p>
-            <p class="subtitle">一般天氣預測{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
+            <p class="subtitle">一般天氣預測</p>
+            <p class="cards">{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
             <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
             <p class="time">更新時間：{{$moment(Flws.updateTime).format('YYYY-MM-DD LTS')}}</p>
             <p class="subtitle">九天天氣預報</p>
