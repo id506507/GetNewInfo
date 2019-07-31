@@ -13,7 +13,7 @@ export default {
       { 'http-equiv': 'pragma', content: 'no-cache' },
       { 'http-equiv': 'cache-control', content: 'no-cache' },
       { 'http-equiv': 'expires', content: '0' },
-      {theme_color:'$gray-800'},
+      {theme_color:'#2f363d'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -24,7 +24,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '$gray-800' },
+  loading: { color: '#2f363d' },
   /*$gray-800
   ** Global CSS
   */
