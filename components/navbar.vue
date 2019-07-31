@@ -60,7 +60,7 @@ export default class NavBar extends Vue{
      font-size: 70%;
  }
  /* .nav{
-     margin-bottom: 8%;
+     color: black;
  } */
 </style>
 
