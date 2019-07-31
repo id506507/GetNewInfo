@@ -3,16 +3,20 @@
         <div class="detail">
             <p class="title">詳細天氣警告</p>
                 <div v-if="Detail">
-                    <div v-for="item in Detail[0].contents" :key="item">
-                            <div class="detailItem">{{item}}</div>
+                    <div v-for="(item,index) in Detail.details" :key="index"><!--loop contents-->
+                        <div v-for="index in item.contents" :key="index"><!--loop contents入面內容，因為每個contents length不同，所以需要inner looping-->
+                            {{index}}
+                        </div>   
+                        <p class="time">更新時間：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
                     </div>
-                    <p class="time">更新時間：{{$moment(Detail[0].updateTime).format('YYYY-MM-DD LTS')}}</p>
                 </div>
                 <div v-else>無</div>
         </div>
         <div v-if="Raining.tcmessage!=''">
             <p class="title">颱風消息</p>
-            <div>{{Raining.tcmessage[0]}}</div>
+            <div v-for="(item,index) in Raining.tcmessage" :key="index">
+                {{Raining.tcmessage[index]}}
+            </div>
         </div>
         <br>
         <div>
@@ -126,7 +130,7 @@ export default class WeatherDetail extends Vue{
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc'),
     ])
     return{
-            Detail:detail.data.details,
+            Detail:detail.data,
             Flws:flws.data,
             Raining:raining.data,
             Nine:nine.data,

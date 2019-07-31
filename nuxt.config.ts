@@ -52,7 +52,21 @@ export default {
       maxAge:0,
     }],
     ['@nuxtjs/moment'],
-    ['nuxt-webfontloader'],
+    // ['nuxt-i18n',{
+    //   locales:[
+    //     {
+    //       code:'hk',
+    //       iso:'zh-HK',
+    //       file:'~/locale/hk.json'
+    //     },
+    //     {
+    //       code:'en',
+    //       iso:'en-US',
+    //       file:'~/locale/en.json'
+    //     }
+    //   ],
+    //   defaultLocale:'hk',
+    // }]
   ],
   
   /*

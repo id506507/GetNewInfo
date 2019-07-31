@@ -11,7 +11,8 @@
         </div>
         <div>
             <p class="special">天氣警告</p>
-                <div v-if="Object.keys(Warning).length!=0">
+                <!-- <div v-if="Object.keys(Warning).length!=0"> -->
+                <div v-if="Weather.warningMessage!=''">
                     <div v-for="(item,index) in Weather.warningMessage" :key="index">
                         <div>{{item}}</div>
                     </div>
