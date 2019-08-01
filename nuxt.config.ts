@@ -92,7 +92,8 @@ export default {
     }
   },
   router:{
-    base:'/GetNewInfo/'
+    base:'/GetNewInfo/',
+    middleware: ['i18n']
   },
   // proxy:[
   //   'https://www.ha.org.hk/opendata/*/*.json'

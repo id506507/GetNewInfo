@@ -1,37 +1,41 @@
 <template>
     <div class="container">
-        <div class="title">{{$t('waiting')}}</div>
-        <div v-for="(value,key,index) in Waiting.waitTime" :key="index" class="list">
-            {{value.hospName}}：{{value.topWait}}
-        </div>
-        <div class="update">更新時間：{{Waiting.updateTime}}&nbsp;({{$t('update')}})</div>
+        getLocale:{{getLocale()}}<br>
+        locale:{{this.$i18n.locale}}<br>
+        store:{{this.$store.state.locale}}<br>
+        result:{{result.name}}
     </div>
 </template>
 <script lang="ts">
 import { Vue,Component } from "nuxt-property-decorator";
 import axios from 'axios';
-import Vuei18n from 'vue-i18n'
+import Vuei18n from 'vue-i18n';
 Vue.use(Vuei18n);
 const i18n=new Vuei18n();
 @Component
 export default class UsefulPage extends Vue{
-    
-    async asyncData(lang:string){
-        console.log('This is aedwtdata');
-        const proxyurl='https://thingproxy.freeboard.io/fetch/';
-        const proxyurl2='https://cors-anywhere.herokuapp.com/';
-        let [tc,en]=await Promise.all([
-            axios.get(proxyurl+'http://www.ha.org.hk/opendata/aed/aedwtdata-tc.json'),
-            axios.get(proxyurl+'http://www.ha.org.hk/opendata/aed/aedwtdata-en.json')
-        ])
-        console.log(i18n.locale)
-        switch(i18n.locale){
+    async asyncData({store}){
+        if(store.state.locale=='hk')
+        {
+            let hk=await axios.get('https://api.myjson.com/bins/s1bfx')
+            return {result:hk.data}
+        }
+        else if(store.state.locale=='en')
+        {
+            let en=await axios.get('https://api.myjson.com/bins/62f7x')
+            return {result:en.data}
+
+        }
+    }
+    getLocale():string{
+        console.log(this.$i18n.locale)
+        switch(this.$i18n.locale){
             case 'hk':
-                return {Waiting:tc.data}
+                return 'HK'
             case 'en':
-                return {Waiting:en.data}
+                return 'EN'
                 default:
-                    return {Waiting:tc.data}
+                    return 'NO'
         }
         
     }
