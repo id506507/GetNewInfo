@@ -46,7 +46,7 @@ export default class WeatherDetail extends Vue{
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc'),
     ])
-    return{
+    return {
             Detail:detail.data,
             Flws:flws.data,
             Raining:raining.data,

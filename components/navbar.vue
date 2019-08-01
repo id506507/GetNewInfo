@@ -23,28 +23,6 @@
             </b-navbar-nav>
             </b-collapse>
         </b-navbar>
-    
-        <!-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <nuxt-link to="/" class="nav-link">{{$t('index')}}</nuxt-link>
-                    </li>
-                    <li class="nav-item active">
-                        <nuxt-link to="/aedwtdata" class="nav-link">{{$t('waiting')}}</nuxt-link>
-                    </li>
-                    <li class="nav-item active">
-                        <nuxt-link to="/sop" class="nav-link">{{$t('sop')}}</nuxt-link>
-                    </li>
-                    <li class="nav-item active">
-                        <nuxt-link to="/weather" class="nav-link">{{$t('weather')}}</nuxt-link>
-                    </li>
-                    <li class="nav-item active">
-                        <nuxt-link to="/weather_detail" class="nav-link">{{$t('weather_detail')}}</nuxt-link>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
     </div>
 </template>
 <script lang="ts">
@@ -53,6 +31,7 @@ import Vuei18n from 'vue-i18n'
 export default class NavBar extends Vue{
     changeLanguage(lang){
         this.$i18n.locale=lang;
+        this.$store.commit('set_Lang',lang);
     }
 }
 </script>
