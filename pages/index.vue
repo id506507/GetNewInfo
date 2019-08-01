@@ -5,7 +5,7 @@
     <div class="row">
       <div class="element">
             <nuxt-link to="/weather">
-              <div class="icon">
+              <div>
                 <i class="material-icons">brightness_low</i>
               </div>
               <div>
@@ -16,11 +16,22 @@
       
       <div class="element">
         <nuxt-link to="/weather_detail">
-          <div class="icon">
+          <div>
             <i class="material-icons">report</i>
           </div>
           <div>
             {{$t('weather_detail')}}
+          </div>
+        </nuxt-link>
+      </div>
+
+      <div class="element">
+        <nuxt-link to="/weather_detail">
+          <div>
+            <i class="material-icons">ac_unit</i>
+          </div>
+          <div>
+            {{$t('weather_forecast')}}
           </div>
         </nuxt-link>
       </div>
@@ -55,9 +66,10 @@ export default {
   margin-right: 5%;
   margin-left: 5%;
 }
-.icon{
+.material-icons{
   margin: auto;
   position: relative;
-  left: 30%;
+  left: 25%;
+  
 }
 </style>
