@@ -45,15 +45,16 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
     '@gauseen/nuxt-proxy',
-    '@nuxtjs/pwa',
     ['@nuxtjs/component-cache',{
       max:0,
       maxAge:0,
     }],
     ['@nuxtjs/moment'],
+    
     // ['nuxt-i18n',{
     //   locales:[
     //     {
@@ -102,5 +103,13 @@ export default {
   //     pathRewrite:{'/api':''}
   //   }
   // },
-  
+  oneSignal: {
+    init: {
+      appId: 'f517f4f6-2b31-458a-bd05-62fef0affb9f',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+          disable: true
+      }
+    }
+  }
 }
