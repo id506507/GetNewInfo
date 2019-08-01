@@ -25,7 +25,8 @@
                 <div v-else><div>無</div></div>
         </div>
         <div>
-            <p class="title">濕度</p><div>{{Weather.humidity.data[0].value}}%</div>
+            <p class="title">濕度</p
+            ><p>{{Weather.humidity.data[0].value}}%</p>
             <p class="time">時間：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
@@ -69,7 +70,7 @@ export default class WeatherPage extends Vue{
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
         axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc')
     ])
-    return{
+    return {
             Special:special.data,
             Weather:weather.data,
             Warning:warning.data
