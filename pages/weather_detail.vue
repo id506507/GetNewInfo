@@ -68,54 +68,16 @@
             <p class="time">時間：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
-            <p class="title">天氣預報</p>
-            <p class="subtitle">一般天氣預測</p>
-            <p class="cards">{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
-            <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
-            <p class="time">更新時間：{{$moment(Flws.updateTime).format('YYYY-MM-DD LTS')}}</p>
-            <p class="subtitle">九天天氣預報</p>
-            <div>{{Nine.generalSituation}}</div>
-            <div>
-                <b-card-group>
-                    <div>
-                        <b-card style="width:100%" v-for="(item,index) in Nine.weatherForecast" :key="index">
-                            <b-card-sub-title>
-                                {{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})
-                            </b-card-sub-title>
-                            <br>
-                            <b-card-text>
-                                {{item.forecastWeather}}{{item.forecastWind}}
-                            </b-card-text>
-                            <b-card-text>溫度：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</b-card-text>
-                            <b-card-text>濕度：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</b-card-text>
-                            
-                        </b-card>
-                    </div>
-                </b-card-group>
-            </div>
-            <p class="time">更新時間：{{$moment(Nine.updateTime).format('YYYY-MM-DD LTS')}}</p>
-            <div>
-                <p class="subtitle">海水溫度</p>
+                <p class="title">海水溫度</p>
                 <div>{{Nine.seaTemp.place}}：{{Nine.seaTemp.value}}&#176;{{Nine.seaTemp.unit}}</div>
                 <p class="time">時間{{$moment(Nine.seaTemp.recordTime).format('YYYY-MM-DD LTS')}}</p>
-                <p class="subtitle">土壤溫度</p>
+                <p class="title">土壤溫度</p>
                 <div v-for="(item,index) in Nine.soilTemp" :key="index">
                     <div>{{item.place}}</div>
                     <div>深度：{{item.depth.value}}&nbsp;{{item.depth.unit}}</div>
                     <div>溫度：{{item.value}}&#176;{{item.unit}}</div>
                     <p class="time">時間：{{$moment(item.recordTime).format('YYYY-MM-DD LTS')}}</p>
                 </div>
-            </div>
-            <!-- <div v-for="(item,index) in Nine.weatherForecast" :key="index">
-                <div class="card" style="width:100%;">
-                        <div class="card-body">
-                            <h6 class="card-title">{{$moment(item.forecastDate).format('YYYY-MM-DD')}}&nbsp;({{item.week}})</h6>
-                            <p class="card-text">{{item.forecastWeather}}{{item.forecastWind}}</p>
-                            <p class="card-text">溫度：{{item.forecastMintemp.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.unit}}</p>
-                            <p class="card-text">濕度：{{item.forecastMinrh.value}}&#176;{{item.unit}}&nbsp;-&nbsp;{{item.forecastMaxrh.value}}&#176;{{item.unit}}</p>
-                        </div>
-                </div>
-            </div> -->
         </div>
         <!-- <div style="height:2500px"></div> -->
     </div>
