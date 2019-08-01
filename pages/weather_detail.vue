@@ -23,9 +23,8 @@
             <p class="title">雨量</p>
             <div>
                 <b-card-group>
-                    <div v-for="(item,index) in Raining.rainfall.data" :key="index">
-                        <div v-if="item.max!=0">
-                            <b-card style="width:9rem;">
+                    <div>
+                            <b-card style="width:6rem;" v-if="item.max!=0" v-for="(item,index) in Raining.rainfall.data" :key="index">
                                 <b-card-sub-title>
                                 {{item.place}}
                                 </b-card-sub-title>
@@ -33,12 +32,17 @@
                                     {{item.max}} {{item.unit}}
                                 </b-card-text> 
                             </b-card>
-                        </div>
-                        
                     </div>
                 </b-card-group>
+                <p class="time">時間：{{$moment(Raining.rainfall.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.rainfall.endTime).format('LTS')}}</p>
+                <div v-if="Raining.rainfallFrom00To12!='' || Raining.rainfallLastMonth!='' || Raining.rainfallJanuaryToLastMonth!=''">
+                    <p class="subtitle">過去雨量</p>
+                    <p>{{Raining.rainfallFrom00To12}}</p>
+                    <p>{{Raining.rainfallLastMonth}}</p>
+                    <p>{{Raining.rainfallJanuaryToLastMonth}}</p>
+                </div>
+                
             </div>
-            <p class="time">時間：{{$moment(Raining.rainfall.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.rainfall.endTime).format('LTS')}}</p>
         </div>
         <div v-if="Raining.lightning">
             <p class="title">雷暴</p>
@@ -117,7 +121,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Vue,Component } from "nuxt-property-decorator";
+import { Vue,Component,Watch } from "nuxt-property-decorator";
 import axios from 'axios';
 import moment from 'moment';
 @Component

@@ -30,14 +30,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  components: {
-    
-  }
-
+<script lang="ts">
+import { Vue,Watch } from "nuxt-property-decorator";
+export default class IndexPage extends Vue{
+    private msg:string='hi'
+    @Watch('msg')
+    onDeatilChanged(val:string,oldVal:string){
+        alert('Message changed');
+    }
 }
+  
+
 </script>
+
 
 <style>
 .space{

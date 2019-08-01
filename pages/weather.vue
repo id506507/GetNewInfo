@@ -29,7 +29,7 @@
             <p class="time">時間：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
-            <p class="title">本港地區天氣報告</p>
+            <p class="title">溫度</p>
             <div>
                 <b-card-group>
                     <div>
@@ -45,16 +45,10 @@
                 </b-card-group>
             </div>
             <p class="time">時間：&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}</p>
-            <!-- <div class="temp">
-            <div v-for="(item,index) in Weather.temperature.data" :key="index">
-                <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title">{{item.place}}</h6>
-                            <p class="card-text">{{item.value}}&#176;{{item.unit}}</p>
-                        </div>
-                </div>
+            <div v-if="Weather.mintempFrom00To09!=''">
+                <p>過去最低溫度</p>
+                <p>{{Weather.mintempFrom00To09}}</p>
             </div>
-            </div>-->
         </div> 
     </div>
 </template>
@@ -63,6 +57,7 @@ import { Vue,Component } from "nuxt-property-decorator";
 import axios from 'axios';
 import moment, { locale } from 'moment';
 import Vuei18n from 'vue-i18n';
+import OneSignal from '@nuxtjs/onesignal';
 Vue.use(Vuei18n);
 const i18n=new Vuei18n();
 @Component
