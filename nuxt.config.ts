@@ -103,13 +103,13 @@ export default {
   //     pathRewrite:{'/api':''}
   //   }
   // },
-  oneSignal: {
-    init: {
-      appId: 'f517f4f6-2b31-458a-bd05-62fef0affb9f',
-      allowLocalhostAsSecureOrigin: true,
-      welcomeNotification: {
-          disable: true
-      }
-    }
-  }
+  // oneSignal: {
+  //   init: {
+  //     appId: 'f517f4f6-2b31-458a-bd05-62fef0affb9f',
+  //     allowLocalhostAsSecureOrigin: true,
+  //     welcomeNotification: {
+  //         disable: true
+  //     }
+  //   }
+  // }
 }
