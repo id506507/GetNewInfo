@@ -14,7 +14,7 @@ import Vuei18n from 'vue-i18n';
 Vue.use(Vuei18n);
 const i18n=new Vuei18n();
 @Component({
-    watchQuery:['page']
+    // watchQuery:['page']
 })
 export default class UsefulPage extends Vue{
     async asyncData({store}){

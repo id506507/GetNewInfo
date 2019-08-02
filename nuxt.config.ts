@@ -1,4 +1,4 @@
-
+const pic='static/Self_Icon.png'
 export default {
   mode: 'universal',
   /*
@@ -17,7 +17,8 @@ export default {
       {theme_color:'#2f363d'},
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:'icon',type:'image/png', href:pic },
       { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' },//google font
       {rel:'stylesheet', href:'https://fonts.googleapis.com/icon?family=Material+Icons'}//material icon
     ]
@@ -96,6 +97,10 @@ export default {
     base:'/GetNewInfo/',
     middleware: ['i18n']
   },
+ 
+  icon:{
+    iconFileName:pic
+  }
   // proxy:[
   //   'https://www.ha.org.hk/opendata/*/*.json'
   // ],
