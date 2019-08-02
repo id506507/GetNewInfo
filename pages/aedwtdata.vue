@@ -22,14 +22,18 @@ export default class UsefulPage extends Vue{
         console.log("asyncData "+store.state.locale)
         if(store.state.locale=='hk')
         {
-            let hk=await axios.get('https://api.myjson.com/bins/s1bfx')
+            let hk=await axios.get('https://api.myjson.com/bins/62f7x')
             return {result:hk.data}
         }
         else if(store.state.locale=='en')
         {
-            let en=await axios.get('https://api.myjson.com/bins/62f7x')
+            let en=await axios.get('https://api.myjson.com/bins/s1bfx')
             return {result:en.data}
-
+        }
+        else
+        {
+            let hk=await axios.get('https://api.myjson.com/bins/62f7x')
+            return {result:hk.data}
         }
     }
     getLocale():string{
