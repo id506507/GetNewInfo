@@ -32,6 +32,8 @@ export default class NavBar extends Vue{
     changeLanguage(lang){
         this.$i18n.locale=lang;
         this.$store.commit('set_Lang',lang);
+        document.cookie='locale='+lang;
+        location.reload();
     }
 }
 </script>
