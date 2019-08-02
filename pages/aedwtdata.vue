@@ -3,7 +3,8 @@
         getLocale:{{getLocale()}}<br>
         locale:{{this.$i18n.locale}}<br>
         store:{{this.$store.state.locale}}<br>
-        result:{{result.name}}
+        asyncData:{{result.name}}<br>
+        getData:{{result.name}}
     </div>
 </template>
 <script lang="ts">
@@ -33,6 +34,15 @@ export default class UsefulPage extends Vue{
             let hk=await axios.get('https://api.myjson.com/bins/62f7x')
             return {result:hk.data}
         }
+    }
+    async getData({store}){
+        let data=await axios.get('https://api.myjson.com/bins/1carh1')
+        if(store.state.locale=='hk')
+            return {result:data.data.zh}
+        else if(store.state.locale=='en')
+            return {result:data.data.en}
+        else
+            return {result:'WOW'}
     }
 
     getLocale():string{
