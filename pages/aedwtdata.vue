@@ -1,10 +1,11 @@
 <template>
     <div class="container">
         getLocale:{{getLocale()}}<br>
-        locale:{{this.$i18n.locale}}<br>
+        i18n.locale:{{this.$i18n.locale}}<br>
         store:{{this.$store.state.locale}}<br>
-        asyncData:{{result.name}}<br>
-        getData:{{result.name}}
+        asyncData:{{Result}}<br>
+        <b-table id="my-table" :items="Data" :per-page="per_page" :current-page="currentPage"></b-table>
+        <b-pagination v-model="currentPage" :total-rows="total" :per-page="per_page" aria-controls="my-table" align="center"></b-pagination>
     </div>
 </template>
 <script lang="ts">
@@ -17,34 +18,35 @@ const i18n=new Vuei18n();
     // watchQuery:['page']
 })
 export default class UsefulPage extends Vue{
+    currentPage:number=1;
+    per_page:number=3;
     async asyncData({store}){
         console.log("asyncData "+store.state.locale)
+        let query=""
         if(store.state.locale=='hk')
         {
-            let hk=await axios.get('https://api.myjson.com/bins/62f7x')
-            return {result:hk.data}
+            query='https://api.myjson.com/bins/62f7x'
         }
         else if(store.state.locale=='en')
         {
-            let en=await axios.get('https://api.myjson.com/bins/s1bfx')
-            return {result:en.data}
+            query='https://api.myjson.com/bins/s1bfx'
         }
         else
         {
-            let hk=await axios.get('https://api.myjson.com/bins/62f7x')
-            return {result:hk.data}
+            query='https://api.myjson.com/bins/62f7x'
+        }
+        let [result,output]=await Promise.all([
+            axios.get(query),
+            axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
+            console.log("query "+store.state.locale)
+        ])
+        return{
+            Data:output.data.rainfall.data,
+            total:Object.keys(output.data.rainfall.data).length,//找array長度
+            Result:store.state.locale
         }
     }
-    async getData({store}){
-        let data=await axios.get('https://api.myjson.com/bins/1carh1')
-        if(store.state.locale=='hk')
-            return {result:data.data.zh}
-        else if(store.state.locale=='en')
-            return {result:data.data.en}
-        else
-            return {result:'WOW'}
-    }
-
+    //  https://api.myjson.com/bins/wh27p
     getLocale():string{
         console.log(this.$i18n.locale)
         switch(this.$i18n.locale){
