@@ -12,9 +12,14 @@ import axios from 'axios';
 import Vuei18n from 'vue-i18n';
 Vue.use(Vuei18n);
 const i18n=new Vuei18n();
-@Component
+@Component({
+    watchQuery:['page']
+})
 export default class UsefulPage extends Vue{
+    hk:string[]=[];
+    en:string[]=[];
     async asyncData({store}){
+        console.log("asyncData "+store.state.locale)
         if(store.state.locale=='hk')
         {
             let hk=await axios.get('https://api.myjson.com/bins/s1bfx')
@@ -37,7 +42,6 @@ export default class UsefulPage extends Vue{
                 default:
                     return 'NO'
         }
-        
     }
 }
 </script>
