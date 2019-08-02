@@ -4,7 +4,26 @@
     "sop":"General Outpatient Clinic Quota",
     "update":"UPDATE FREQUENCY: EVERY 15 MINUTES",
     "weather":"HK Weather Overview",
+    "none":"None",
     "weather_detail":"Weather Warning Summary",
-    "weather_forecast":"Weather Forecast"
-    
+    "weather_forecast":"Weather Forecast",
+    "special_noti":"Special Weather Tips",
+    "alert":"Weather Warnings",
+    "humidity":"Humidity",
+    "temperature":"Temperature",
+    "update_time":"Update Time",
+    "valid_time":"Valid time",
+    "min_temp":"Yesterday's Minimum Air Temperature",
+    "tc":"Tropical Cyclone Information",
+    "rainfall":"Rainfall",
+    "p_rainfall":"Past Rainfall",
+    "thunderstorm":"thunderstorm",
+    "uvindex":"UV Index",
+    "intensity":"Intensity",
+    "sea_temp":"Sea Temp",
+    "soil_temp":"Soil Temp",
+    "depth":"Depth",
+    "forecast":"Weather Forecast",
+    "general_forecast":"General Situation",
+    "nineday_forecast":"9-day Weather Forecast"
 }

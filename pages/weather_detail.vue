@@ -1,26 +1,26 @@
 <template>
     <div class="container">
         <div class="detail">
-            <p class="title">詳細天氣警告</p>
-                <div v-if="Detail">
+            <p class="title">{{$t('weather_detail')}}</p>
+                <div v-if="Object.keys(Detail).length!=0"><!--check empty-->
                     <div v-for="(item,index) in Detail.details" :key="index"><!--loop contents-->
                         <div v-for="index in item.contents" :key="index"><!--loop contents入面內容，因為每個contents length不同，所以需要inner looping-->
                             {{index}}
                         </div>   
-                        <p class="time">更新時間：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
+                        <p class="time">{{$t('update_time')}}：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
                     </div>
                 </div>
-                <div v-else>無</div>
+                <div v-else>{{$t('none')}}</div>
         </div>
         <div v-if="Raining.tcmessage!=''">
-            <p class="title">颱風消息</p>
+            <p class="title">{{$t('tc')}}</p>
             <div v-for="(item,index) in Raining.tcmessage" :key="index">
                 {{item}}
             </div>
         </div>
         <br>
         <div>
-            <p class="title">雨量</p>
+            <p class="title">{{$t('rainfall')}}</p>
             <div>
                 <b-card-group>
                     <div>
@@ -34,9 +34,9 @@
                             </b-card>
                     </div>
                 </b-card-group>
-                <p class="time">時間：{{$moment(Raining.rainfall.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.rainfall.endTime).format('LTS')}}</p>
+                <p class="time">{{$t('update_time')}}：{{$moment(Raining.rainfall.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.rainfall.endTime).format('LTS')}}</p>
                 <div v-if="Raining.rainfallFrom00To12!='' || Raining.rainfallLastMonth!='' || Raining.rainfallJanuaryToLastMonth!=''">
-                    <p class="subtitle">過去雨量</p>
+                    <p class="subtitle">{{$t('p_rainfall')}}</p>
                     <p>{{Raining.rainfallFrom00To12}}</p>
                     <p>{{Raining.rainfallLastMonth}}</p>
                     <p>{{Raining.rainfallJanuaryToLastMonth}}</p>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div v-if="Raining.lightning">
-            <p class="title">雷暴</p>
+            <p class="title">{{$t('thunderstorm')}}</p>
             <div>
                 <b-card-group>
                     <div v-for="(item,index) in Raining.lightning.data" :key="index" >
@@ -60,23 +60,23 @@
                     </div>
                 </b-card-group>
             </div>
-            <p class="time">時間：{{$moment(Raining.lightning.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.lightning.endTime).format('LTS')}}</p>
+            <p class="time">{{$t('valid_time')}}：{{$moment(Raining.lightning.startTime).format('YYYY-MM-DD LTS')}}&nbsp;-&nbsp;{{$moment(Raining.lightning.endTime).format('LTS')}}</p>
         </div>
         <div v-if="Raining.uvindex!=''">
-            <p class="title">紫外線指數</p>
-            <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;指數：{{Raining.uvindex.data[0].value}}；強度：{{Raining.uvindex.data[0].desc}}</div>
-            <p class="time">時間：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
+            <p class="title">{{$t('uvindex')}}</p>
+            <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;{{$t('uvindex')}}：{{Raining.uvindex.data[0].value}}；{{$t('intensity')}}：{{Raining.uvindex.data[0].desc}}</div>
+            <p class="time">{{$t('update_time')}}：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
-                <p class="title">海水溫度</p>
+                <p class="title">{{$t('sea_temp')}}</p>
                 <div>{{Nine.seaTemp.place}}：{{Nine.seaTemp.value}}&#176;{{Nine.seaTemp.unit}}</div>
-                <p class="time">時間{{$moment(Nine.seaTemp.recordTime).format('YYYY-MM-DD LTS')}}</p>
-                <p class="title">土壤溫度</p>
+                <p class="time">{{$t('update_time')}}：{{$moment(Nine.seaTemp.recordTime).format('YYYY-MM-DD LTS')}}</p>
+                <p class="title">{{$t('soil_temp')}}</p>
                 <div v-for="(item,index) in Nine.soilTemp" :key="index">
                     <div>{{item.place}}</div>
-                    <div>深度：{{item.depth.value}}&nbsp;{{item.depth.unit}}</div>
-                    <div>溫度：{{item.value}}&#176;{{item.unit}}</div>
-                    <p class="time">時間：{{$moment(item.recordTime).format('YYYY-MM-DD LTS')}}</p>
+                    <div>{{$t('depth')}}：{{item.depth.value}}&nbsp;m</div>
+                    <div>{{$t('temperature')}}：{{item.value}}&#176;{{item.unit}}</div>
+                    <p class="time">{{$t('update_time')}}：{{$moment(item.recordTime).format('YYYY-MM-DD LTS')}}</p>
                 </div>
         </div>
         <!-- <div style="height:2500px"></div> -->

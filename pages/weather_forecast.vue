@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div>
-            <p class="title">天氣預報</p>
-            <p class="subtitle">一般天氣預測</p>
+            <p class="title">{{$t('forecast')}}</p>
+            <p class="subtitle">{{$t('general_forecast')}}</p>
             <p class="cards">{{Flws.generalSituation}}{{Flws.tcInfo}}{{Flws.fireDangerWarning}}</p>
             <p class="cards">{{Flws.forecastPeriod}}：{{Flws.forecastDesc}}{{Flws.outlook}}</p>
-            <p class="time">更新時間：{{$moment(Flws.updateTime).format('YYYY-MM-DD LTS')}}</p>
-            <p class="subtitle">九天天氣預報</p>
+            <p class="time">{{$t('update_time')}}：{{$moment(Flws.updateTime).format('YYYY-MM-DD LTS')}}</p>
+            <p class="subtitle">{{$t('nineday_forecast')}}</p>
             <div>{{Nine.generalSituation}}</div>
             <div>
                 <b-card-group>
@@ -19,14 +19,14 @@
                             <b-card-text>
                                 {{item.forecastWeather}}{{item.forecastWind}}
                             </b-card-text>
-                            <b-card-text>溫度：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</b-card-text>
-                            <b-card-text>濕度：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</b-card-text>
+                            <b-card-text>{{$t('temperature')}}：{{item.forecastMintemp.value}}&#176;{{item.forecastMintemp.unit}}&nbsp;-&nbsp;{{item.forecastMaxtemp.value}}&#176;{{item.forecastMaxtemp.unit}}</b-card-text>
+                            <b-card-text>{{$t('humidity')}}：{{item.forecastMinrh.value}}%&nbsp;-&nbsp;{{item.forecastMaxrh.value}}%</b-card-text>
                             
                         </b-card>
                     </div>
                 </b-card-group>
             </div>
-            <p class="time">更新時間：{{$moment(Nine.updateTime).format('YYYY-MM-DD LTS')}}</p>
+            <p class="time">{{$t('update_time')}}：{{$moment(Nine.updateTime).format('YYYY-MM-DD LTS')}}</p>
             
         </div>
         <!-- <div style="height:2500px"></div> -->

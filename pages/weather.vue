@@ -2,35 +2,35 @@
     <div class="container">
         <div>
             <div class="special">
-            <p>特別天氣提示</p></div>
+            <p>{{$t('special_noti')}}</p></div>
             <div v-if="Special.swt!=''">
                 <div v-for="(item,index) in Special.swt" :key="index">
                     <div>{{item.desc}}</div>
-                    <p class="time">更新時間：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
+                    <p class="time">{{$t('update_time')}}：{{$moment(item.updateTime).format('YYYY-MM-DD LTS')}}</p>
                 </div>
                 
             </div>
-                <div v-else>無</div>
+                <div v-else>{{$t('none')}}</div>
         </div>
         <div>
-            <p class="special">天氣警告</p>
+            <p class="special">{{$t('alert')}}</p>
                 <!-- <div v-if="Object.keys(Warning).length!=0"> -->
                 <div v-if="Weather.warningMessage!=''">
                     <div v-for="(item,index) in Weather.warningMessage" :key="index">
                         <div>{{item}}</div>
-                        <p class="time">有效時間：{{$moment(Weather.iconUpdateTime).format('YYYY-MM-DD LTS')}}</p>
+                        <p class="time">{{$t('valid_time')}}：{{$moment(Weather.iconUpdateTime).format('YYYY-MM-DD LTS')}}</p>
                     </div>
                     
                 </div>
-                <div v-else><div>無</div></div>
+                <div v-else><div>{{$t('none')}}</div></div>
         </div>
         <div>
-            <p class="title">濕度</p
-            ><p>{{Weather.humidity.data[0].value}}%</p>
-            <p class="time">時間：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
+            <p class="title">{{$t('humidity')}}</p>
+            <p>{{Weather.humidity.data[0].value}}%</p>
+            <p class="time">{{$t('update_time')}}：{{$moment(Weather.humidity.recordTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
-            <p class="title">溫度</p>
+            <p class="title">{{$t('temperature')}}</p>
             <div>
                 <b-card-group>
                     <div>
@@ -45,9 +45,9 @@
                     </div>
                 </b-card-group>
             </div>
-            <p class="time">時間：&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}</p>
+            <p class="time">{{$t('update_time')}}：&nbsp;{{$moment(Weather.temperature.recordTime).format('YYYY-MM-DD LTS') }}</p>
             <div v-if="Weather.mintempFrom00To09!=''">
-                <p>過去最低溫度</p>
+                <p class="subtitle">{{$t('min_temp')}}</p>
                 <p>{{Weather.mintempFrom00To09}}</p>
             </div>
         </div> 
@@ -117,6 +117,11 @@ margin-bottom: 1%;
     font-weight: bold;
     font-size: 120%;
     color:darkmagenta;
+}
+.subtitle{
+    font-weight: bold;
+    font-size: 101%;
+    color:rgb(2, 0, 139);
 }
 </style>
 
