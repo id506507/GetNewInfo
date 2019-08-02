@@ -16,8 +16,6 @@ const i18n=new Vuei18n();
     watchQuery:['page']
 })
 export default class UsefulPage extends Vue{
-    hk:string[]=[];
-    en:string[]=[];
     async asyncData({store}){
         console.log("asyncData "+store.state.locale)
         if(store.state.locale=='hk')
@@ -36,6 +34,7 @@ export default class UsefulPage extends Vue{
             return {result:hk.data}
         }
     }
+
     getLocale():string{
         console.log(this.$i18n.locale)
         switch(this.$i18n.locale){
