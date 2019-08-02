@@ -86,7 +86,9 @@
 import { Vue,Component,Watch } from "nuxt-property-decorator";
 import axios from 'axios';
 import moment from 'moment';
-@Component
+@Component({
+    watchQuery:['page']
+})
 export default class WeatherDetail extends Vue{
     async asyncData(){
         console.log('This is weather_detail asyncData.');
