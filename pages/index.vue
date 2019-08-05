@@ -26,7 +26,7 @@
       </div>
 
       <div class="element">
-        <nuxt-link to="/weather_detail">
+        <nuxt-link to="/weather_forecast">
           <div>
             <i class="material-icons">ac_unit</i>
           </div>
