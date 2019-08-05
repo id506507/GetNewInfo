@@ -64,7 +64,7 @@
         </div>
         <div v-if="Raining.uvindex!=''">
             <p class="title">{{$t('uvindex')}}</p>
-            <div>{{Raining.uvindex.data[0].place}}{{Raining.uvindex.recordDesc}}&nbsp;{{$t('uvindex')}}：{{Raining.uvindex.data[0].value}}；{{$t('intensity')}}：{{Raining.uvindex.data[0].desc}}</div>
+            <div>{{Raining.uvindex.data[0].place}}&nbsp;{{Raining.uvindex.recordDesc}}<br>{{$t('uvindex')}}：{{Raining.uvindex.data[0].value}}；{{$t('intensity')}}：{{Raining.uvindex.data[0].desc}}</div>
             <p class="time">{{$t('update_time')}}：{{$moment(Raining.updateTime).format('YYYY-MM-DD LTS')}}</p>
         </div>
         <div>
@@ -87,22 +87,22 @@ import { Vue,Component,Watch } from "nuxt-property-decorator";
 import axios from 'axios';
 import moment from 'moment';
 @Component({
-    watchQuery:['page']
+    // watchQuery:['page']
 })
 export default class WeatherDetail extends Vue{
-    async asyncData(){
+    async asyncData({store}){
+        let raining_counter:number=0;
         console.log('This is weather_detail asyncData.');
-        let [detail,flws,raining,nine]=await Promise.all([
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc'),
+        let [detail,raining,nine]=await Promise.all([
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang='+store.state.locale),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang='+store.state.locale),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang='+store.state.locale),
     ])
     return {
             Detail:detail.data,
-            Flws:flws.data,
             Raining:raining.data,
             Nine:nine.data,
+            Raining_counter:raining_counter,
         }
     }
 }

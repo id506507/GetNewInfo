@@ -1,9 +1,19 @@
 <template>
     <div class="container">
+        <div v-if="$device.isDesktop">
+            Desktop
+        </div>
+        <div v-else-if="$device.isTablet">
+            Tablet
+        </div>
+        <div v-else>
+            Mobile
+        </div>
         getLocale:{{getLocale()}}<br>
         i18n.locale:{{this.$i18n.locale}}<br>
         store:{{this.$store.state.locale}}<br>
         asyncData:{{Result}}<br>
+        {{Multi}}
         <b-table id="my-table" :items="Data" :per-page="per_page" :current-page="currentPage"></b-table>
         <b-pagination v-model="currentPage" :total-rows="total" :per-page="per_page" aria-controls="my-table" align="center"></b-pagination>
     </div>
@@ -23,7 +33,7 @@ export default class UsefulPage extends Vue{
     async asyncData({store}){
         console.log("asyncData "+store.state.locale)
         let query=""
-        if(store.state.locale=='hk')
+        if(store.state.locale=='tc')
         {
             query='https://api.myjson.com/bins/62f7x'
         }
@@ -35,23 +45,24 @@ export default class UsefulPage extends Vue{
         {
             query='https://api.myjson.com/bins/62f7x'
         }
-        let [result,output]=await Promise.all([
+        let [result,output,multi]=await Promise.all([
             axios.get(query),
             axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
+            axios.get('https://api.myjson.com/bins/wh27p'),
             console.log("query "+store.state.locale)
         ])
         return{
             Data:output.data.rainfall.data,
             total:Object.keys(output.data.rainfall.data).length,//找array長度
-            Result:store.state.locale
+            Result:store.state.locale,
+            Multi:multi.data
         }
     }
-    //  https://api.myjson.com/bins/wh27p
     getLocale():string{
         console.log(this.$i18n.locale)
         switch(this.$i18n.locale){
-            case 'hk':
-                return 'HK'
+            case 'tc':
+                return 'tc'
             case 'en':
                 return 'EN'
                 default:

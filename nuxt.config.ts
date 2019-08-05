@@ -55,6 +55,7 @@ export default {
       max:0,
       maxAge:0,
     }],
+    'nuxt-device-detect',
     ['@nuxtjs/moment'],
     
     // ['nuxt-i18n',{

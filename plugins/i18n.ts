@@ -10,11 +10,11 @@ export default ({ app,store }) => {
     // Set the initial locale
     locale: store.state.locale,
     // Set the fallback locale in case the current locale can't be found
-    fallbackLocale: 'hk',
+    fallbackLocale: 'tc',
 
     // Associate each locale to a content file    
     messages: {
-      hk: require("~/locale/hk.json"),
+      tc: require("~/locale/tc.json"),
       en: require("~/locale/en.json")
     }
   });

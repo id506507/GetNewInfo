@@ -18,7 +18,7 @@
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
-                <button class="btn btn-outline-light" @click="changeLanguage('hk')">中文</button>&nbsp;      
+                <button class="btn btn-outline-light" @click="changeLanguage('tc')">中文</button>&nbsp;      
                 <button class="btn btn-outline-light" @click="changeLanguage('en')">ENGLISH</button>
             </b-navbar-nav>
             </b-collapse>

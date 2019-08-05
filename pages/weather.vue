@@ -34,7 +34,7 @@
             <div>
                 <b-card-group>
                     <div>
-                        <b-card style="width:9rem;" v-for="(item,index) in Weather.temperature.data" :key="index">
+                        <b-card style="width=9rem;" v-for="(item,index) in Weather.temperature.data" :key="index">
                             <b-card-sub-title>
                                 {{item.place}}
                             </b-card-sub-title>
@@ -66,9 +66,9 @@ export default class WeatherPage extends Vue{
     async asyncData({store}){
         console.log("weather "+store.state.locale)
         let [special,weather,warning]=await Promise.all([
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=tc'),
-        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=tc')
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=swt&lang='+store.state.locale),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang='+store.state.locale),
+        axios.get('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang='+store.state.locale)
     ])
     return {
             Special:special.data,
