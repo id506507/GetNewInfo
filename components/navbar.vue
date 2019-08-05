@@ -33,7 +33,7 @@ export default class NavBar extends Vue{
         this.$i18n.locale=lang;
         this.$store.commit('set_Lang',lang);
         document.cookie='locale='+lang;
-        location.reload();//因為每次設定完就強制reload，所以一定可以換language
+        // location.reload();//因為每次設定完就強制reload，所以一定可以換language
     }
 }
 </script>
