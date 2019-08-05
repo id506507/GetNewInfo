@@ -21,6 +21,9 @@ export default {
       { rel:'icon',type:'image/png', href:pic },
       { rel:'stylesheet', href:'https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap' },//google font
       {rel:'stylesheet', href:'https://fonts.googleapis.com/icon?family=Material+Icons'}//material icon
+    ],
+    script:[
+      {src:'https://cdn.rawgit.com/abdmob/x2js/master/xml2json.js'}
     ]
   },
   /*
