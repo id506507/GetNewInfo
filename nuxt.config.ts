@@ -58,6 +58,12 @@ export default {
       max:0,
       maxAge:0,
     }],
+<<<<<<< HEAD
+=======
+    ['nuxt-gmaps',{
+      key:''
+    }],
+>>>>>>> aa660b8... change
     'nuxt-device-detect',
     ['@nuxtjs/moment'],
     
