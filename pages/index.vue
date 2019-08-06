@@ -36,7 +36,7 @@
         </nuxt-link>
       </div>
 
-      <div class="element">
+      <!-- <div class="element">
         <nuxt-link to="/traffic">
           <div>
             <i class="material-icons">traffic</i>
@@ -45,7 +45,7 @@
             {{$t('traffic')}}
           </div>
         </nuxt-link>
-      </div>
+      </div> -->
     </div>
 
     <div class="space"></div>
