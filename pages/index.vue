@@ -35,6 +35,17 @@
           </div>
         </nuxt-link>
       </div>
+
+      <div class="element">
+        <nuxt-link to="/traffic">
+          <div>
+            <i class="material-icons">traffic</i>
+          </div>
+          <div>
+            {{$t('traffic')}}
+          </div>
+        </nuxt-link>
+      </div>
     </div>
 
     <div class="space"></div>

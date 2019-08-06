@@ -25,5 +25,6 @@
     "depth":"Depth",
     "forecast":"Weather Forecast",
     "general_forecast":"General Situation",
-    "nineday_forecast":"9-day Weather Forecast"
+    "nineday_forecast":"9-day Weather Forecast",
+    "traffic":"Special Traffic News"
 }
