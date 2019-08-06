@@ -40,7 +40,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/i18n.ts'
+    '~/plugins/i18n.ts',
+    // '~/plugins/google-map.ts'
   ],
   /*
   ** Nuxt.js modules
@@ -57,6 +58,9 @@ export default {
     ['@nuxtjs/component-cache',{
       max:0,
       maxAge:0,
+    }],
+    ['nuxt-gmaps',{
+      key:'AIzaSyBewr0MVAWBrjM-aPg5ilhKV8qh1Gz6KGo'
     }],
     'nuxt-device-detect',
     ['@nuxtjs/moment'],

@@ -15,6 +15,7 @@
                 <b-nav-item to="/weather_detail">{{$t('weather_detail')}}</b-nav-item>
                 <b-nav-item to="/weather_forecast">{{$t('weather_forecast')}}</b-nav-item>
                 <!-- <b-nav-item to="/traffic">{{$t('traffic')}}</b-nav-item> -->
+                <b-nav-item to="/coin">{{$t('coin')}}</b-nav-item>
             </b-navbar-nav>
 
             <!-- Right aligned nav items -->

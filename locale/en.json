@@ -26,5 +26,10 @@
     "forecast":"Weather Forecast",
     "general_forecast":"General Situation",
     "nineday_forecast":"9-day Weather Forecast",
-    "traffic":"Special Traffic News"
+    "traffic":"Special Traffic News",
+    "coin":"Coin Cart Schedule",
+    "start_date":"Start Date",
+    "end_date":"End Date",
+    "address":"Address",
+    "remarks":"Remarks"
 }

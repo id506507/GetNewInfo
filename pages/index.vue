@@ -36,6 +36,16 @@
         </nuxt-link>
       </div>
 
+      <div class="element">
+        <nuxt-link to="/coin">
+          <div>
+            <i class="material-icons">schedule</i>
+          </div>
+          <div>
+            {{$t('coin')}}
+          </div>
+        </nuxt-link>
+      </div>
       <!-- <div class="element">
         <nuxt-link to="/traffic">
           <div>
