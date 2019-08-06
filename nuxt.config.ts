@@ -60,7 +60,7 @@ export default {
       maxAge:0,
     }],
     ['nuxt-gmaps',{
-      key:'AIzaSyBewr0MVAWBrjM-aPg5ilhKV8qh1Gz6KGo'
+      key:''
     }],
     'nuxt-device-detect',
     ['@nuxtjs/moment'],
