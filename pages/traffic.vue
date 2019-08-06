@@ -21,7 +21,8 @@ const X2js=new x2js();
 export default class WeatherDetail extends Vue{
     lang=this.$store.state.locale
     async asyncData(){
-        let data=await axios.get(' http://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml');
+        let proxyUrl='http://alloworigin.com/get?url='
+        let data=await axios.get('https://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml');
         return {
             Data:X2js.xml2js(data.data),
         }
