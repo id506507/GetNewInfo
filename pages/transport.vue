@@ -1,6 +1,14 @@
 <template>
     <div class="container">
-        {{jsonObj}}
+        <div v-for="(item,index) in Data.body.message" :key="index">
+            <div class="Tcard">
+                <div v-if="lang =='tc'">{{item.ChinText}}</div>
+                <div v-else-if="lang=='en'">{{item.EngText}}</div>
+                <div>{{item.ReferenceDate}}</div>
+            </div>
+            
+        </div>
+        
     </div>
 </template>
 <script lang="ts">
@@ -11,17 +19,22 @@ import x2js from 'x2js';
 const X2js=new x2js();
 @Component
 export default class WeatherDetail extends Vue{
-    
-    xmlText = "<MyRoot><test>Success</test><test2><item>val1</item><item>val2</item></test2></MyRoot>";
-    links='http://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml'
-    jsonObj = X2js.xml2js('http://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml');
-    
-    
-    // async asyncData(){
-    //     let data=await axios.get(' http://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml')
-    // }
+    lang=this.$store.state.locale
+    async asyncData(){
+        let data=await axios.get(' http://resource.data.one.gov.hk/td/tc/specialtrafficnews.xml');
+        return {
+            Data:X2js.xml2js(data.data),
+        }
+        
+    }
 }
 </script>
 <style>
-
+.Tcard{
+    width: 100%;
+    border:none;
+    margin-bottom: 1%;
+    box-shadow: 0 1px 3px 0;
+    border-radius:6px;
+}
 </style>
