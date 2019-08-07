@@ -55,7 +55,4 @@ export default class WeatherDetail extends Vue{
     box-shadow: 0 1px 3px 0;
     border-radius:6px;
 }
-.material-icons{
-    font-size: 16px;
-}
 </style>
