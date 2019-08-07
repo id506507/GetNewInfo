@@ -26,7 +26,13 @@
     "forecast":"天氣預報",
     "general_forecast":"一般天氣預測",
     "nineday_forecast":"九天天氣預報",
-    "traffic":"特別交通消息"
+    "traffic":"特別交通消息",
+    "coin":"收銀車日程表",
+    "start_date":"開始日期",
+    "end_date":"結束日期",
+    "address":"地址",
+    "remarks":"備註"
+
 
 
 

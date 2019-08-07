@@ -44,7 +44,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/i18n.ts'
+    '~/plugins/i18n.ts',
+    // '~/plugins/google-map.ts'
   ],
   /*
   ** Nuxt.js modules
@@ -64,11 +65,17 @@ export default {
       maxAge:0,
     }],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     ['nuxt-gmaps',{
       key: process.env.GOOGLE_MAPS_API_KEY
     }],
 >>>>>>> aa660b8... change
+=======
+    ['nuxt-gmaps',{
+      key: process.env.GOOGLE_MAPS_API_KEY
+    }],
+>>>>>>> 9fb59c3cf3dd588e02fdfedb066dedb9dc06abac
     'nuxt-device-detect',
     ['@nuxtjs/moment'],
     
