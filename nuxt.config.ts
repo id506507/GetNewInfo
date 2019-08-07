@@ -1,5 +1,9 @@
 const pic='static/Self_Icon.png'
+require('dotenv').config()
 export default {
+  env:{
+    GOOGLE_MAPS_API_KEY:process.env.GOOGLE_MAPS_API_KEY
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -54,6 +58,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/proxy',
     '@gauseen/nuxt-proxy',
+    '@nuxtjs/dotenv',
     ['@nuxtjs/component-cache',{
       max:0,
       maxAge:0,
@@ -61,7 +66,7 @@ export default {
 <<<<<<< HEAD
 =======
     ['nuxt-gmaps',{
-      key:''
+      key: process.env.GOOGLE_MAPS_API_KEY
     }],
 >>>>>>> aa660b8... change
     'nuxt-device-detect',
