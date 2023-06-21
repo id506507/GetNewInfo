@@ -25,7 +25,7 @@
     "cors-anywhere": "^0.4.1",
     "firebase": "^6.3.3",
     "moment": "^2.24.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "nuxt-device-detect": "^1.1.5",
     "nuxt-gmaps": "^1.0.2",
     "nuxt-i18n": "^6.0.0",
