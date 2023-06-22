@@ -24,7 +24,7 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "cors-anywhere": "^0.4.1",
     "firebase": "^6.3.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nuxt": "^3.4.3",
     "nuxt-device-detect": "^1.1.5",
     "nuxt-gmaps": "^1.0.2",
